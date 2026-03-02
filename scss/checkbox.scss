@@ -15,7 +15,7 @@ input[type="checkbox"] {
   height: 18px;
   border: 1px solid var(--form-border);
   border-radius: 3px;
-  background-color: var(--form-bg);
+  background-color: var(--bg-primary);
   transition: all 0.2s ease-in-out;
   cursor: pointer;
   outline: none;
@@ -60,7 +60,7 @@ input[type="checkbox"] {
 
   // 禁用状态
   &:disabled {
-    background-color: var(--form-bg-disabled);
+    background-color: var(--bg-disabled);
     border-color: var(--form-border);
     cursor: not-allowed;
     opacity: 0.6;

@@ -16,12 +16,13 @@ $themes: (
   light: (
     bg-body: #ffffff,
     bg-surface: #f9f9f9,
+    // 通用背景色
+    bg-primary: #ffffff,
+    bg-disabled: #f5f5f5,
     // 表单主题色
     form-border: #d9d9d9,
     form-border-hover: #40a9ff,
     form-border-focus: #1890ff,
-    form-bg: #ffffff,
-    form-bg-disabled: #f5f5f5,
     form-text: #333333,
     form-text-disabled: #bfbfbf,
     form-placeholder: #bfbfbf,
@@ -46,12 +47,13 @@ $themes: (
   dark: (
     bg-body: #121212,
     bg-surface: #1e1e1e,
+    // 通用背景色
+    bg-primary: #1e1e1e,
+    bg-disabled: #262626,
     // 表单主题色
     form-border: #434343,
     form-border-hover: #69b1ff,
     form-border-focus: #177ddc,
-    form-bg: #1e1e1e,
-    form-bg-disabled: #262626,
     form-text: #e0e0e0,
     form-text-disabled: #595959,
     form-placeholder: #595959,
@@ -91,12 +93,14 @@ $themes: (
      */
     --app-bg-surface: #{map.get($theme-map, bg-surface)};
 
+    // 通用背景色变量
+    --bg-primary: #{map.get($theme-map, bg-primary)};
+    --bg-disabled: #{map.get($theme-map, bg-disabled)};
+
     // 表单主题变量
     --form-border: #{map.get($theme-map, form-border)};
     --form-border-hover: #{map.get($theme-map, form-border-hover)};
     --form-border-focus: #{map.get($theme-map, form-border-focus)};
-    --form-bg: #{map.get($theme-map, form-bg)};
-    --form-bg-disabled: #{map.get($theme-map, form-bg-disabled)};
     --form-text: #{map.get($theme-map, form-text)};
     --form-text-disabled: #{map.get($theme-map, form-text-disabled)};
     --form-placeholder: #{map.get($theme-map, form-placeholder)};
@@ -136,12 +140,14 @@ $themes: (
    */
   --app-bg-surface: #{map.get($theme-map, bg-surface)};
 
+  // 通用背景色变量
+  --bg-primary: #{map.get($theme-map, bg-primary)};
+  --bg-disabled: #{map.get($theme-map, bg-disabled)};
+
   // 表单主题变量
   --form-border: #{map.get($theme-map, form-border)};
   --form-border-hover: #{map.get($theme-map, form-border-hover)};
   --form-border-focus: #{map.get($theme-map, form-border-focus)};
-  --form-bg: #{map.get($theme-map, form-bg)};
-  --form-bg-disabled: #{map.get($theme-map, form-bg-disabled)};
   --form-text: #{map.get($theme-map, form-text)};
   --form-text-disabled: #{map.get($theme-map, form-text-disabled)};
   --form-placeholder: #{map.get($theme-map, form-placeholder)};
