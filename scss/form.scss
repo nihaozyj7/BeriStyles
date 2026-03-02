@@ -1,0 +1,580 @@
+/**
+ * 表单基础样式
+ * 包含输入框、按钮、单选框、复选框、下拉框等常用表单元素
+ * 默认样式直接作用于标签，通过 .small / .large 控制尺寸
+ */
+
+// 表单基础变量
+$form-height: 32px;
+$form-padding: 4px 11px;
+$form-border-radius: 6px;
+$form-transition: all 0.3s;
+
+/**
+ * 输入框样式
+ * 默认中号尺寸，直接对 input 标签生效
+ */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="time"],
+input[type="week"] {
+  width: 100%;
+  height: $form-height;
+  padding: $form-padding;
+  font-size: 14px;
+  color: var(--form-text);
+  background-color: var(--form-bg);
+  border: 1px solid var(--form-border);
+  border-radius: $form-border-radius;
+  transition: $form-transition;
+
+  &::placeholder {
+    color: var(--form-placeholder);
+  }
+
+  &:hover:not(:disabled):not([readonly]) {
+    border-color: var(--form-border-hover);
+  }
+
+  &:focus {
+    border-color: var(--form-border-focus);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+  }
+
+  &:disabled {
+    background-color: var(--form-bg-disabled);
+    color: var(--form-text-disabled);
+    cursor: not-allowed;
+  }
+
+  &[readonly] {
+    background-color: var(--form-bg-disabled);
+    cursor: default;
+  }
+
+  // 小号尺寸
+  &.small {
+    height: 24px;
+    padding: 0 7px;
+    font-size: 12px;
+  }
+
+  // 大号尺寸
+  &.large {
+    height: 40px;
+    padding: 6px 15px;
+    font-size: 16px;
+  }
+
+  // 状态修饰
+  &.is-error {
+    border-color: var(--form-error);
+
+    &:focus {
+      box-shadow: 0 0 0 2px rgba(255, 77, 79, 0.2);
+    }
+  }
+
+  &.is-success {
+    border-color: var(--form-success);
+
+    &:focus {
+      box-shadow: 0 0 0 2px rgba(82, 196, 26, 0.2);
+    }
+  }
+
+  &.is-warning {
+    border-color: var(--form-warning);
+
+    &:focus {
+      box-shadow: 0 0 0 2px rgba(250, 173, 20, 0.2);
+    }
+  }
+}
+
+/**
+ * 文本域样式
+ * 默认中号尺寸，直接对 textarea 标签生效
+ */
+textarea {
+  min-height: 80px;
+  padding: $form-padding;
+  font-size: 14px;
+  color: var(--form-text);
+  background-color: var(--form-bg);
+  border: 1px solid var(--form-border);
+  border-radius: $form-border-radius;
+  transition: $form-transition;
+  resize: vertical;
+
+  &::placeholder {
+    color: var(--form-placeholder);
+  }
+
+  &:hover:not(:disabled):not([readonly]) {
+    border-color: var(--form-border-hover);
+  }
+
+  &:focus {
+    border-color: var(--form-border-focus);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+  }
+
+  &:disabled {
+    background-color: var(--form-bg-disabled);
+    color: var(--form-text-disabled);
+    cursor: not-allowed;
+  }
+
+  // 小号尺寸
+  &.small {
+    min-height: 60px;
+    padding: 4px 7px;
+    font-size: 12px;
+  }
+
+  // 大号尺寸
+  &.large {
+    min-height: 120px;
+    padding: 6px 15px;
+    font-size: 16px;
+  }
+
+  // 状态修饰
+  &.is-error {
+    border-color: var(--form-error);
+
+    &:focus {
+      box-shadow: 0 0 0 2px rgba(255, 77, 79, 0.2);
+    }
+  }
+
+  &.is-success {
+    border-color: var(--form-success);
+
+    &:focus {
+      box-shadow: 0 0 0 2px rgba(82, 196, 26, 0.2);
+    }
+  }
+
+  &.is-warning {
+    border-color: var(--form-warning);
+
+    &:focus {
+      box-shadow: 0 0 0 2px rgba(250, 173, 20, 0.2);
+    }
+  }
+}
+
+/**
+ * 下拉选择框样式
+ * 默认中号尺寸，直接对 select 标签生效
+ */
+select {
+  width: 100%;
+  height: $form-height;
+  padding: $form-padding;
+  font-size: 14px;
+  color: var(--form-text);
+  background-color: var(--form-bg);
+  border: 1px solid var(--form-border);
+  border-radius: $form-border-radius;
+  transition: $form-transition;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 11px center;
+  padding-right: 30px;
+
+  &:hover:not(:disabled) {
+    border-color: var(--form-border-hover);
+  }
+
+  &:focus {
+    border-color: var(--form-border-focus);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+  }
+
+  &:disabled {
+    background-color: var(--form-bg-disabled);
+    color: var(--form-text-disabled);
+    cursor: not-allowed;
+  }
+
+  // 小号尺寸
+  &.small {
+    height: 24px;
+    padding: 0 7px;
+    font-size: 12px;
+    background-position: right 7px center;
+    padding-right: 22px;
+  }
+
+  // 大号尺寸
+  &.large {
+    height: 40px;
+    padding: 6px 15px;
+    font-size: 16px;
+    background-position: right 15px center;
+    padding-right: 38px;
+  }
+
+  // 状态修饰
+  &.is-error {
+    border-color: var(--form-error);
+
+    &:focus {
+      box-shadow: 0 0 0 2px rgba(255, 77, 79, 0.2);
+    }
+  }
+
+  &.is-success {
+    border-color: var(--form-success);
+
+    &:focus {
+      box-shadow: 0 0 0 2px rgba(82, 196, 26, 0.2);
+    }
+  }
+
+  &.is-warning {
+    border-color: var(--form-warning);
+
+    &:focus {
+      box-shadow: 0 0 0 2px rgba(250, 173, 20, 0.2);
+    }
+  }
+}
+
+/**
+ * 按钮基础样式
+ * 默认中号尺寸，直接对 button 标签生效
+ */
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: $form-height;
+  padding: 0 15px;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  border-radius: $form-border-radius;
+  cursor: pointer;
+  transition: $form-transition;
+  user-select: none;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  // 小号尺寸
+  &.small {
+    height: 24px;
+    padding: 0 10px;
+    font-size: 12px;
+  }
+
+  // 大号尺寸
+  &.large {
+    height: 40px;
+    padding: 0 20px;
+    font-size: 16px;
+  }
+
+  // 主要按钮
+  &.primary {
+    color: var(--btn-primary-text);
+    background-color: var(--btn-primary-bg);
+    border-color: var(--btn-primary-bg);
+
+    &:hover:not(:disabled) {
+      background-color: var(--btn-primary-bg-hover);
+      border-color: var(--btn-primary-bg-hover);
+    }
+  }
+
+  // 默认按钮
+  &.default {
+    color: var(--btn-default-text);
+    background-color: var(--btn-default-bg);
+    border-color: var(--btn-default-border);
+
+    &:hover:not(:disabled) {
+      color: var(--form-border-focus);
+      border-color: var(--form-border-focus);
+    }
+  }
+
+  // 危险按钮
+  &.danger {
+    color: var(--btn-danger-text);
+    background-color: var(--btn-danger-bg);
+    border-color: var(--btn-danger-bg);
+
+    &:hover:not(:disabled) {
+      background-color: var(--btn-danger-bg-hover);
+      border-color: var(--btn-danger-bg-hover);
+    }
+  }
+
+  // 文字按钮
+  &.text {
+    color: var(--form-border-focus);
+    background-color: transparent;
+    border-color: transparent;
+
+    &:hover:not(:disabled) {
+      opacity: 0.8;
+    }
+  }
+}
+
+/**
+ * 单选框样式
+ * 直接对 input[type="radio"] 标签生效
+ */
+input[type="radio"] {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  background-color: var(--form-bg);
+  border: 1px solid var(--form-border);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: $form-transition;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+
+  &:hover {
+    border-color: var(--form-border-hover);
+  }
+
+  &:checked {
+    border-color: var(--form-border-focus);
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px;
+      height: 8px;
+      background-color: var(--form-border-focus);
+      border-radius: 50%;
+    }
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+  }
+
+  &:disabled {
+    background-color: var(--form-bg-disabled);
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  // 小号尺寸
+  &.small {
+    width: 12px;
+    height: 12px;
+
+    &:checked::after {
+      width: 6px;
+      height: 6px;
+    }
+  }
+
+  // 大号尺寸
+  &.large {
+    width: 20px;
+    height: 20px;
+
+    &:checked::after {
+      width: 10px;
+      height: 10px;
+    }
+  }
+}
+
+/**
+ * 开关样式
+ * 默认中号尺寸
+ */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 22px;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked + .slider {
+      background-color: var(--form-border-focus);
+    }
+
+    &:checked + .slider::before {
+      transform: translateX(22px);
+    }
+
+    &:focus + .slider {
+      box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+    }
+
+    &:disabled + .slider {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--form-border);
+    border-radius: 22px;
+    transition: $form-transition;
+
+    &::before {
+      position: absolute;
+      content: '';
+      height: 18px;
+      width: 18px;
+      left: 2px;
+      bottom: 2px;
+      background-color: white;
+      border-radius: 50%;
+      transition: $form-transition;
+    }
+  }
+
+  // 小号开关
+  &.small {
+    width: 32px;
+    height: 16px;
+
+    input:checked + .slider::before {
+      transform: translateX(16px);
+    }
+
+    .slider {
+      border-radius: 16px;
+
+      &::before {
+        height: 12px;
+        width: 12px;
+        left: 2px;
+        bottom: 2px;
+      }
+    }
+  }
+
+  // 大号开关
+  &.large {
+    width: 56px;
+    height: 28px;
+
+    input:checked + .slider::before {
+      transform: translateX(28px);
+    }
+
+    .slider {
+      border-radius: 28px;
+
+      &::before {
+        height: 24px;
+        width: 24px;
+        left: 2px;
+        bottom: 2px;
+      }
+    }
+  }
+}
+
+/**
+ * 表单组样式
+ */
+.form-group {
+  margin-bottom: 16px;
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: var(--form-text);
+    font-weight: 500;
+
+    &.is-required::before {
+      content: '*';
+      color: var(--form-error);
+      margin-right: 4px;
+    }
+  }
+
+  .form-hint {
+    margin-top: 4px;
+    font-size: 12px;
+    color: var(--form-placeholder);
+  }
+
+  .form-error-msg {
+    margin-top: 4px;
+    font-size: 12px;
+    color: var(--form-error);
+  }
+}
+
+/**
+ * 表单行内布局
+ */
+.form-inline {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+
+  .form-group {
+    margin-bottom: 0;
+  }
+}
+
+/**
+ * Label 包含 input 的样式
+ */
+label:has(input[type="radio"]),
+label:has(input[type="checkbox"]) {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+  color: var(--form-text);
+
+  input {
+    margin: 0;
+  }
+}

@@ -13,14 +13,62 @@ $themes: (
    * 浅色模式配置
    * 背景色为纯白
    */
-  light: (bg-body: #ffffff,
-    bg-surface: #f9f9f9),
+  light: (
+    bg-body: #ffffff,
+    bg-surface: #f9f9f9,
+    // 表单主题色
+    form-border: #d9d9d9,
+    form-border-hover: #40a9ff,
+    form-border-focus: #1890ff,
+    form-bg: #ffffff,
+    form-bg-disabled: #f5f5f5,
+    form-text: #333333,
+    form-text-disabled: #bfbfbf,
+    form-placeholder: #bfbfbf,
+    form-error: #ff4d4f,
+    form-success: #52c41a,
+    form-warning: #faad14,
+    // 按钮主题色
+    btn-primary-bg: #1890ff,
+    btn-primary-bg-hover: #40a9ff,
+    btn-primary-text: #ffffff,
+    btn-default-bg: #ffffff,
+    btn-default-border: #d9d9d9,
+    btn-default-text: #333333,
+    btn-danger-bg: #ff4d4f,
+    btn-danger-bg-hover: #ff7875,
+    btn-danger-text: #ffffff
+  ),
   /**
    * 深色模式配置
    * 背景色为深灰，表面色为稍浅的深灰
    */
-  dark: (bg-body: #121212,
-    bg-surface: #1e1e1e)
+  dark: (
+    bg-body: #121212,
+    bg-surface: #1e1e1e,
+    // 表单主题色
+    form-border: #434343,
+    form-border-hover: #69b1ff,
+    form-border-focus: #177ddc,
+    form-bg: #1e1e1e,
+    form-bg-disabled: #262626,
+    form-text: #e0e0e0,
+    form-text-disabled: #595959,
+    form-placeholder: #595959,
+    form-error: #ff7875,
+    form-success: #73d13d,
+    form-warning: #ffc53d,
+    // 按钮主题色
+    btn-primary-bg: #177ddc,
+    btn-primary-bg-hover: #4096ff,
+    btn-primary-text: #ffffff,
+    btn-default-bg: #1e1e1e,
+    btn-default-border: #434343,
+    btn-default-text: #e0e0e0,
+    btn-danger-bg: #ff7875,
+    btn-danger-bg-hover: #ff4d4f,
+    btn-danger-text: #ffffff
+  )
 );
 
 /**
@@ -42,7 +90,75 @@ $themes: (
      * 对应 $themes 中的 bg-surface
      */
     --app-bg-surface: #{map.get($theme-map, bg-surface)};
+
+    // 表单主题变量
+    --form-border: #{map.get($theme-map, form-border)};
+    --form-border-hover: #{map.get($theme-map, form-border-hover)};
+    --form-border-focus: #{map.get($theme-map, form-border-focus)};
+    --form-bg: #{map.get($theme-map, form-bg)};
+    --form-bg-disabled: #{map.get($theme-map, form-bg-disabled)};
+    --form-text: #{map.get($theme-map, form-text)};
+    --form-text-disabled: #{map.get($theme-map, form-text-disabled)};
+    --form-placeholder: #{map.get($theme-map, form-placeholder)};
+    --form-error: #{map.get($theme-map, form-error)};
+    --form-success: #{map.get($theme-map, form-success)};
+    --form-warning: #{map.get($theme-map, form-warning)};
+
+    // 按钮主题变量
+    --btn-primary-bg: #{map.get($theme-map, btn-primary-bg)};
+    --btn-primary-bg-hover: #{map.get($theme-map, btn-primary-bg-hover)};
+    --btn-primary-text: #{map.get($theme-map, btn-primary-text)};
+    --btn-default-bg: #{map.get($theme-map, btn-default-bg)};
+    --btn-default-border: #{map.get($theme-map, btn-default-border)};
+    --btn-default-text: #{map.get($theme-map, btn-default-text)};
+    --btn-danger-bg: #{map.get($theme-map, btn-danger-bg)};
+    --btn-danger-bg-hover: #{map.get($theme-map, btn-danger-bg-hover)};
+    --btn-danger-text: #{map.get($theme-map, btn-danger-text)};
   }
+}
+
+/**
+ * 生成根节点主题变量块 Mixin (不带类名前缀)
+ * 用于 :root 选择器，直接生成 CSS 自定义属性
+ * @param $theme-name - 主题名称
+ * @param $theme-map - 该主题的颜色数据 Map
+ */
+@mixin generate-theme-variables-root($theme-name, $theme-map) {
+  /**
+   * 全局页面背景色变量
+   * 对应 $themes 中的 bg-body
+   */
+  --app-bg-body: #{map.get($theme-map, bg-body)};
+
+  /**
+   * 卡片或容器表面背景色变量
+   * 对应 $themes 中的 bg-surface
+   */
+  --app-bg-surface: #{map.get($theme-map, bg-surface)};
+
+  // 表单主题变量
+  --form-border: #{map.get($theme-map, form-border)};
+  --form-border-hover: #{map.get($theme-map, form-border-hover)};
+  --form-border-focus: #{map.get($theme-map, form-border-focus)};
+  --form-bg: #{map.get($theme-map, form-bg)};
+  --form-bg-disabled: #{map.get($theme-map, form-bg-disabled)};
+  --form-text: #{map.get($theme-map, form-text)};
+  --form-text-disabled: #{map.get($theme-map, form-text-disabled)};
+  --form-placeholder: #{map.get($theme-map, form-placeholder)};
+  --form-error: #{map.get($theme-map, form-error)};
+  --form-success: #{map.get($theme-map, form-success)};
+  --form-warning: #{map.get($theme-map, form-warning)};
+
+  // 按钮主题变量
+  --btn-primary-bg: #{map.get($theme-map, btn-primary-bg)};
+  --btn-primary-bg-hover: #{map.get($theme-map, btn-primary-bg-hover)};
+  --btn-primary-text: #{map.get($theme-map, btn-primary-text)};
+  --btn-default-bg: #{map.get($theme-map, btn-default-bg)};
+  --btn-default-border: #{map.get($theme-map, btn-default-border)};
+  --btn-default-text: #{map.get($theme-map, btn-default-text)};
+  --btn-danger-bg: #{map.get($theme-map, btn-danger-bg)};
+  --btn-danger-bg-hover: #{map.get($theme-map, btn-danger-bg-hover)};
+  --btn-danger-text: #{map.get($theme-map, btn-danger-text)};
 }
 
 /**
@@ -50,7 +166,7 @@ $themes: (
  * 防止类名未加载时样式丢失，默认为浅色模式
  */
 :root {
-  @include generate-theme-variables(light, map.get($themes, light));
+  @include generate-theme-variables-root(light, map.get($themes, light));
 }
 
 /**
