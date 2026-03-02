@@ -9,6 +9,7 @@ lerna-debug.log*
 
 node_modules
 dist
+css
 dist-ssr
 *.local
 原生js实现
