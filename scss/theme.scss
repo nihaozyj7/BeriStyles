@@ -1,8 +1,27 @@
 /**
- * 导入 Sass 内置的 map 模块
- * 用于替代已废弃的全局 map-get 函数
+ * 导入 Sass 内置模块
  */
 @use "sass:map";
+
+/**
+ * 基础字体大小
+ * 用于 rem 单位计算，1rem = 16px
+ */
+$base-font-size: 16px;
+
+/**
+ * px 转 rem 函数
+ * 将像素值转换为 rem 单位
+ * @param $px - 像素值（带 px 单位的值）
+ * @return - rem 单位的值
+ * @example to-rem(16px) -> 1rem, to-rem(32px) -> 2rem
+ */
+@function to-rem($px) {
+  // 手动计算 rem 值 (1rem = 16px)
+  // 14px / 16px = 0.875rem
+  $rem-value: $px / $base-font-size;
+  @return $rem-value * 1rem;
+}
 
 /**
  * 主题配置映射
@@ -219,4 +238,11 @@ body {
    * 覆盖 body 中的默认颜色
    */
   color: #e0e0e0;
+}
+
+/**
+ * 测试 to-rem 函数
+ */
+.test-to-rem {
+  font-size: to-rem(14px);
 }

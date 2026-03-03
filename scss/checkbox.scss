@@ -1,8 +1,10 @@
 /**
  * 复选框样式
- * 默认中号尺寸，直接对 input[type="checkbox"] 标签生效
- * 通过 .small 和 .large 控制尺寸
+ * 默认尺寸，直接对 input[type="checkbox"] 标签生效
  */
+
+// 导入 theme.scss 以使用 to-rem 函数
+@import './theme.scss';
 
 input[type="checkbox"] {
   appearance: none;
@@ -10,11 +12,11 @@ input[type="checkbox"] {
   display: inline-block;
   vertical-align: middle;
   position: relative;
-  top: -2px;
-  width: 18px;
-  height: 18px;
+  top: to-rem(-2px);
+  width: to-rem(18px);
+  height: to-rem(18px);
   border: 1px solid var(--form-border);
-  border-radius: 3px;
+  border-radius: to-rem(3px);
   background-color: var(--bg-primary);
   transition: all 0.2s ease-in-out;
   cursor: pointer;
@@ -36,15 +38,16 @@ input[type="checkbox"] {
   &::after {
     content: "";
     position: absolute;
-    transform: translateY(-55%) rotate(45deg);
+    transform: translateY(-50%) rotate(45deg);
     border: solid #fff;
-    border-width: 0 2px 2px 0;
+    border-width: 0 to-rem(2px) to-rem(2px) 0;
     opacity: 0;
     transition: opacity 0.2s ease-in-out;
-    left: 5px;
-    top: 2px;
-    width: 4px;
-    height: 8px;
+    left: to-rem(5px);
+    top: 50%;
+    margin-top: to-rem(-1px);
+    width: to-rem(4px);
+    height: to-rem(8px);
   }
 
   // 选中时的对勾显示
@@ -54,7 +57,7 @@ input[type="checkbox"] {
 
   // 焦点可见状态
   &:focus-visible {
-    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+    box-shadow: 0 0 0 to-rem(2px) rgba(24, 144, 255, 0.2);
     border-color: var(--form-border-focus);
   }
 
@@ -77,33 +80,6 @@ input[type="checkbox"] {
     border-color: #fff;
   }
 
-  // 小号尺寸
-  &.small {
-    width: 14px;
-    height: 14px;
-
-    &::after {
-      left: 4px;
-      top: 1px;
-      width: 3px;
-      height: 6px;
-      border-width: 0 1.5px 1.5px 0;
-    }
-  }
-
-  // 大号尺寸
-  &.large {
-    width: 22px;
-    height: 22px;
-
-    &::after {
-      left: 6px;
-      top: 3px;
-      width: 5px;
-      height: 10px;
-    }
-  }
-
   // 圆形复选框
   &.round {
     border-radius: 50%;
@@ -119,7 +95,7 @@ input[type="checkbox"] {
     }
 
     &:focus-visible {
-      box-shadow: 0 0 0 2px rgba(255, 77, 79, 0.2);
+      box-shadow: 0 0 0 to-rem(2px) rgba(255, 77, 79, 0.2);
     }
   }
 
@@ -132,7 +108,7 @@ input[type="checkbox"] {
     }
 
     &:focus-visible {
-      box-shadow: 0 0 0 2px rgba(82, 196, 26, 0.2);
+      box-shadow: 0 0 0 to-rem(2px) rgba(82, 196, 26, 0.2);
     }
   }
 
@@ -145,7 +121,7 @@ input[type="checkbox"] {
     }
 
     &:focus-visible {
-      box-shadow: 0 0 0 2px rgba(250, 173, 20, 0.2);
+      box-shadow: 0 0 0 to-rem(2px) rgba(250, 173, 20, 0.2);
     }
   }
 }
@@ -155,7 +131,7 @@ label:has(input[type="checkbox"]) {
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: to-rem(8px);
   user-select: none;
   color: var(--form-text);
 

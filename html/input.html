@@ -49,17 +49,7 @@
             <tr>
               <td><code>（无）</code></td>
               <td>默认样式</td>
-              <td>中号尺寸，高度 32px</td>
-            </tr>
-            <tr>
-              <td><code>.small</code></td>
-              <td>小尺寸</td>
-              <td>高度 24px，字体 12px</td>
-            </tr>
-            <tr>
-              <td><code>.large</code></td>
-              <td>大尺寸</td>
-              <td>高度 40px，字体 16px</td>
+              <td>高度 32px</td>
             </tr>
             <tr>
               <td><code>.is-error</code></td>
@@ -80,17 +70,7 @@
         </table>
       </section>
 
-      <section class="doc-section">
-        <h2>尺寸演示</h2>
-        <div class="demo-box">
-          <div class="demo-row">
-            <input type="text" placeholder="默认中号 (32px)" style="width: 180px;">
-            <input type="text" class="small" placeholder="小号 (24px)" style="width: 150px;">
-            <input type="text" class="large" placeholder="大号 (40px)" style="width: 200px;">
-          </div>
-        </div>
-
-        <h3>使用示例</h3>
+      <section class="doc-section"><h3>使用示例</h3>
         <pre><code>&lt;!-- 默认中号输入框 --&gt;
 &lt;input type="text" placeholder="请输入..."&gt;
 
@@ -161,18 +141,18 @@
       </section>
 
       <section class="doc-section">
-        <h2>组合使用</h2>
+        <h2>状态组合</h2>
         <div class="demo-box">
           <div class="demo-row">
-            <input type="text" class="small is-error" placeholder="小号错误" style="width: 150px;">
-            <input type="text" class="large is-success" placeholder="大号成功" style="width: 200px;">
-            <input type="password" class="is-warning" placeholder="密码警告" style="width: 180px;">
+            <input type="text" class="is-error" placeholder="错误状态" style="width: 150px;">
+            <input type="text" class="is-success" placeholder="成功状态" style="width: 150px;">
+            <input type="password" class="is-warning" placeholder="警告状态" style="width: 180px;">
           </div>
         </div>
 
         <div class="tip-box">
           <div class="tip-box-title">💡 提示</div>
-          <p>尺寸类名（.small/.large）和状态类名（.is-error/.is-success/.is-warning）可以同时使用，它们作用于不同的 CSS 属性。</p>
+          <p>状态类名（.is-error/.is-success/.is-warning）可以单独使用或与其他属性组合。</p>
         </div>
       </section>
 

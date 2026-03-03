@@ -1,13 +1,16 @@
 /**
  * 表单基础样式
  * 包含输入框、按钮、单选框、复选框、下拉框等常用表单元素
- * 默认样式直接作用于标签，通过 .small / .large 控制尺寸
+ * 默认样式直接作用于标签
  */
 
-// 表单基础变量
-$form-height: 32px;
-$form-padding: 4px 11px;
-$form-border-radius: 6px;
+// 导入 theme.scss 以使用 to-rem 函数
+@import './theme.scss';
+
+// 表单基础变量（使用 rem 单位）
+$form-height: to-rem(32px);
+$form-padding: to-rem(4px) to-rem(11px);
+$form-border-radius: to-rem(6px);
 $form-transition: all 0.3s;
 
 /**
@@ -29,7 +32,7 @@ input[type="week"] {
   width: 100%;
   height: $form-height;
   padding: $form-padding;
-  font-size: 14px;
+  font-size: to-rem(14px);
   color: var(--form-text);
   background-color: var(--bg-primary);
   border: 1px solid var(--form-border);
@@ -47,7 +50,7 @@ input[type="week"] {
   &:focus {
     border-color: var(--form-border-focus);
     outline: none;
-    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+    box-shadow: 0 0 0 to-rem(2px) rgba(24, 144, 255, 0.2);
   }
 
   &:disabled {
@@ -61,26 +64,12 @@ input[type="week"] {
     cursor: default;
   }
 
-  // 小号尺寸
-  &.small {
-    height: 24px;
-    padding: 0 7px;
-    font-size: 12px;
-  }
-
-  // 大号尺寸
-  &.large {
-    height: 40px;
-    padding: 6px 15px;
-    font-size: 16px;
-  }
-
   // 状态修饰
   &.is-error {
     border-color: var(--form-error);
 
     &:focus {
-      box-shadow: 0 0 0 2px rgba(255, 77, 79, 0.2);
+      box-shadow: 0 0 0 to-rem(2px) rgba(255, 77, 79, 0.2);
     }
   }
 
@@ -88,7 +77,7 @@ input[type="week"] {
     border-color: var(--form-success);
 
     &:focus {
-      box-shadow: 0 0 0 2px rgba(82, 196, 26, 0.2);
+      box-shadow: 0 0 0 to-rem(2px) rgba(82, 196, 26, 0.2);
     }
   }
 
@@ -96,7 +85,7 @@ input[type="week"] {
     border-color: var(--form-warning);
 
     &:focus {
-      box-shadow: 0 0 0 2px rgba(250, 173, 20, 0.2);
+      box-shadow: 0 0 0 to-rem(2px) rgba(250, 173, 20, 0.2);
     }
   }
 }
@@ -106,9 +95,9 @@ input[type="week"] {
  * 默认中号尺寸，直接对 textarea 标签生效
  */
 textarea {
-  min-height: 80px;
+  min-height: to-rem(80px);
   padding: $form-padding;
-  font-size: 14px;
+  font-size: to-rem(14px);
   color: var(--form-text);
   background-color: var(--bg-primary);
   border: 1px solid var(--form-border);
@@ -127,7 +116,7 @@ textarea {
   &:focus {
     border-color: var(--form-border-focus);
     outline: none;
-    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+    box-shadow: 0 0 0 to-rem(2px) rgba(24, 144, 255, 0.2);
   }
 
   &:disabled {
@@ -136,26 +125,12 @@ textarea {
     cursor: not-allowed;
   }
 
-  // 小号尺寸
-  &.small {
-    min-height: 60px;
-    padding: 4px 7px;
-    font-size: 12px;
-  }
-
-  // 大号尺寸
-  &.large {
-    min-height: 120px;
-    padding: 6px 15px;
-    font-size: 16px;
-  }
-
   // 状态修饰
   &.is-error {
     border-color: var(--form-error);
 
     &:focus {
-      box-shadow: 0 0 0 2px rgba(255, 77, 79, 0.2);
+      box-shadow: 0 0 0 to-rem(2px) rgba(255, 77, 79, 0.2);
     }
   }
 
@@ -163,7 +138,7 @@ textarea {
     border-color: var(--form-success);
 
     &:focus {
-      box-shadow: 0 0 0 2px rgba(82, 196, 26, 0.2);
+      box-shadow: 0 0 0 to-rem(2px) rgba(82, 196, 26, 0.2);
     }
   }
 
@@ -171,7 +146,7 @@ textarea {
     border-color: var(--form-warning);
 
     &:focus {
-      box-shadow: 0 0 0 2px rgba(250, 173, 20, 0.2);
+      box-shadow: 0 0 0 to-rem(2px) rgba(250, 173, 20, 0.2);
     }
   }
 }
@@ -184,7 +159,7 @@ select {
   width: 100%;
   height: $form-height;
   padding: $form-padding;
-  font-size: 14px;
+  font-size: to-rem(14px);
   color: var(--form-text);
   background-color: var(--bg-primary);
   border: 1px solid var(--form-border);
@@ -194,8 +169,8 @@ select {
   appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 11px center;
-  padding-right: 30px;
+  background-position: right to-rem(11px) center;
+  padding-right: to-rem(30px);
 
   &:hover:not(:disabled) {
     border-color: var(--form-border-hover);
@@ -204,7 +179,7 @@ select {
   &:focus {
     border-color: var(--form-border-focus);
     outline: none;
-    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+    box-shadow: 0 0 0 to-rem(2px) rgba(24, 144, 255, 0.2);
   }
 
   &:disabled {
@@ -213,30 +188,12 @@ select {
     cursor: not-allowed;
   }
 
-  // 小号尺寸
-  &.small {
-    height: 24px;
-    padding: 0 7px;
-    font-size: 12px;
-    background-position: right 7px center;
-    padding-right: 22px;
-  }
-
-  // 大号尺寸
-  &.large {
-    height: 40px;
-    padding: 6px 15px;
-    font-size: 16px;
-    background-position: right 15px center;
-    padding-right: 38px;
-  }
-
   // 状态修饰
   &.is-error {
     border-color: var(--form-error);
 
     &:focus {
-      box-shadow: 0 0 0 2px rgba(255, 77, 79, 0.2);
+      box-shadow: 0 0 0 to-rem(2px) rgba(255, 77, 79, 0.2);
     }
   }
 
@@ -244,7 +201,7 @@ select {
     border-color: var(--form-success);
 
     &:focus {
-      box-shadow: 0 0 0 2px rgba(82, 196, 26, 0.2);
+      box-shadow: 0 0 0 to-rem(2px) rgba(82, 196, 26, 0.2);
     }
   }
 
@@ -252,7 +209,7 @@ select {
     border-color: var(--form-warning);
 
     &:focus {
-      box-shadow: 0 0 0 2px rgba(250, 173, 20, 0.2);
+      box-shadow: 0 0 0 to-rem(2px) rgba(250, 173, 20, 0.2);
     }
   }
 }
@@ -266,8 +223,8 @@ button {
   align-items: center;
   justify-content: center;
   height: $form-height;
-  padding: 0 15px;
-  font-size: 14px;
+  padding: 0 to-rem(15px);
+  font-size: to-rem(14px);
   font-weight: 400;
   text-align: center;
   white-space: nowrap;
@@ -280,20 +237,6 @@ button {
   &:disabled {
     opacity: 0.6;
     cursor: not-allowed;
-  }
-
-  // 小号尺寸
-  &.small {
-    height: 24px;
-    padding: 0 10px;
-    font-size: 12px;
-  }
-
-  // 大号尺寸
-  &.large {
-    height: 40px;
-    padding: 0 20px;
-    font-size: 16px;
   }
 
   // 主要按钮
@@ -350,8 +293,8 @@ button {
  */
 input[type="radio"] {
   appearance: none;
-  width: 16px;
-  height: 16px;
+  width: to-rem(16px);
+  height: to-rem(16px);
   margin: 0;
   background-color: var(--bg-primary);
   border: 1px solid var(--form-border);
@@ -375,43 +318,21 @@ input[type="radio"] {
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
-      width: 8px;
-      height: 8px;
+      width: to-rem(8px);
+      height: to-rem(8px);
       background-color: var(--form-border-focus);
       border-radius: 50%;
     }
   }
 
   &:focus {
-    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+    box-shadow: 0 0 0 to-rem(2px) rgba(24, 144, 255, 0.2);
   }
 
   &:disabled {
     background-color: var(--bg-disabled);
     cursor: not-allowed;
     opacity: 0.6;
-  }
-
-  // 小号尺寸
-  &.small {
-    width: 12px;
-    height: 12px;
-
-    &:checked::after {
-      width: 6px;
-      height: 6px;
-    }
-  }
-
-  // 大号尺寸
-  &.large {
-    width: 20px;
-    height: 20px;
-
-    &:checked::after {
-      width: 10px;
-      height: 10px;
-    }
   }
 }
 
@@ -422,8 +343,8 @@ input[type="radio"] {
 .switch {
   position: relative;
   display: inline-block;
-  width: 44px;
-  height: 22px;
+  width: to-rem(44px);
+  height: to-rem(22px);
 
   input {
     opacity: 0;
@@ -435,11 +356,11 @@ input[type="radio"] {
     }
 
     &:checked + .slider::before {
-      transform: translateX(22px);
+      transform: translateX(to-rem(22px));
     }
 
     &:focus + .slider {
-      box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+      box-shadow: 0 0 0 to-rem(2px) rgba(24, 144, 255, 0.2);
     }
 
     &:disabled + .slider {
@@ -456,16 +377,16 @@ input[type="radio"] {
     right: 0;
     bottom: 0;
     background-color: var(--form-border);
-    border-radius: 22px;
+    border-radius: to-rem(22px);
     transition: $form-transition;
 
     &::before {
       position: absolute;
       content: '';
-      height: 18px;
-      width: 18px;
-      left: 2px;
-      bottom: 2px;
+      height: to-rem(18px);
+      width: to-rem(18px);
+      left: to-rem(2px);
+      bottom: to-rem(2px);
       background-color: white;
       border-radius: 50%;
       transition: $form-transition;
@@ -473,77 +394,39 @@ input[type="radio"] {
   }
 
   // 小号开关
-  &.small {
-    width: 32px;
-    height: 16px;
-
-    input:checked + .slider::before {
-      transform: translateX(16px);
-    }
-
-    .slider {
-      border-radius: 16px;
-
-      &::before {
-        height: 12px;
-        width: 12px;
-        left: 2px;
-        bottom: 2px;
-      }
-    }
-  }
 
   // 大号开关
-  &.large {
-    width: 56px;
-    height: 28px;
-
-    input:checked + .slider::before {
-      transform: translateX(28px);
-    }
-
-    .slider {
-      border-radius: 28px;
-
-      &::before {
-        height: 24px;
-        width: 24px;
-        left: 2px;
-        bottom: 2px;
-      }
-    }
-  }
 }
 
 /**
  * 表单组样式
  */
 .form-group {
-  margin-bottom: 16px;
+  margin-bottom: to-rem(16px);
 
   label {
     display: block;
-    margin-bottom: 8px;
-    font-size: 14px;
+    margin-bottom: to-rem(8px);
+    font-size: to-rem(14px);
     color: var(--form-text);
     font-weight: 500;
 
     &.is-required::before {
       content: '*';
       color: var(--form-error);
-      margin-right: 4px;
+      margin-right: to-rem(4px);
     }
   }
 
   .form-hint {
-    margin-top: 4px;
-    font-size: 12px;
+    margin-top: to-rem(4px);
+    font-size: to-rem(12px);
     color: var(--form-placeholder);
   }
 
   .form-error-msg {
-    margin-top: 4px;
-    font-size: 12px;
+    margin-top: to-rem(4px);
+    font-size: to-rem(12px);
     color: var(--form-error);
   }
 }
@@ -554,7 +437,7 @@ input[type="radio"] {
 .form-inline {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: to-rem(16px);
   flex-wrap: wrap;
 
   .form-group {
@@ -570,7 +453,7 @@ label:has(input[type="checkbox"]) {
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: to-rem(8px);
   user-select: none;
   color: var(--form-text);
 
