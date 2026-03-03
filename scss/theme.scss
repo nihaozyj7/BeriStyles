@@ -127,6 +127,13 @@ $themes: (
     --form-success: #{map.get($theme-map, form-success)};
     --form-warning: #{map.get($theme-map, form-warning)};
 
+    // 通用语义化颜色变量（可用于通知、提示等场景）
+    --color-primary: #{map.get($theme-map, form-border-focus)};
+    --color-success: #{map.get($theme-map, form-success)};
+    --color-warning: #{map.get($theme-map, form-warning)};
+    --color-error: #{map.get($theme-map, form-error)};
+    --color-info: #{map.get($theme-map, form-border-focus)};
+
     // 按钮主题变量
     --btn-primary-bg: #{map.get($theme-map, btn-primary-bg)};
     --btn-primary-bg-hover: #{map.get($theme-map, btn-primary-bg-hover)};
@@ -173,6 +180,13 @@ $themes: (
   --form-error: #{map.get($theme-map, form-error)};
   --form-success: #{map.get($theme-map, form-success)};
   --form-warning: #{map.get($theme-map, form-warning)};
+
+  // 通用语义化颜色变量（可用于通知、提示等场景）
+  --color-primary: #{map.get($theme-map, form-border-focus)};
+  --color-success: #{map.get($theme-map, form-success)};
+  --color-warning: #{map.get($theme-map, form-warning)};
+  --color-error: #{map.get($theme-map, form-error)};
+  --color-info: #{map.get($theme-map, form-border-focus)};
 
   // 按钮主题变量
   --btn-primary-bg: #{map.get($theme-map, btn-primary-bg)};

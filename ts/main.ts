@@ -68,6 +68,11 @@ function syncThemeToIframe(theme: Theme): void {
       iframeHtml.classList.add('theme-light');
     }
   }
+
+  // 同时通过 postMessage 通知 iframe（备用方案）
+  if (iframe && iframe.contentWindow) {
+    iframe.contentWindow.postMessage({ type: 'theme-change', theme }, '*');
+  }
 }
 
 /**

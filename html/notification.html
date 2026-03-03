@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="theme-light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>消息通知 Notification</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="./doc-styles.css">
+  <style>
+    /* 演示区域特殊样式 */
+    .notification-demo-area {
+      min-height: 200px;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <div class="doc-container">
+    <header class="doc-header">
+      <h1>🔔 消息通知 (Notification)</h1>
+      <p>全局消息通知组件，支持多种类型、位置和自定义配置，自动适配浅色/深色主题。</p>
+    </header>
+
+    <section class="doc-section">
+      <h2>特性概览</h2>
+      <ul>
+        <li>🎨 <strong>主题自适应</strong> - 自动读取 CSS 变量适配浅色/深色主题</li>
+        <li>📍 <strong>多位置支持</strong> - 支持左上、右上、左下、右下四个位置</li>
+        <li>🔔 <strong>多种类型</strong> - info、success、warning、error 四种消息类型</li>
+        <li>⏱️ <strong>自动关闭</strong> - 支持自动关闭和手动关闭</li>
+        <li>🎬 <strong>动画效果</strong> - 平滑的进入/退出动画</li>
+        <li>📱 <strong>响应式设计</strong> - 移动端适配，自动调整位置</li>
+      </ul>
+    </section>
+
+    <section class="doc-section">
+      <h2>快速开始</h2>
+      <p>消息通知组件是一个纯 TypeScript 组件，无需在 HTML 中预定义结构，直接调用 API 即可显示通知。</p>
+      
+      <h3>1. 引入组件</h3>
+      <pre><code>// ES Module 方式导入
+import { Notification } from '../js/notification.js';
+
+// 或作为模块使用
+import { showNotification, info, success, warning, error } from '../js/notification.js';</code></pre>
+
+      <h3>2. 显示通知</h3>
+      <pre><code>// 显示 info 通知
+Notification.info('这是一条信息提示');
+
+// 显示 success 通知
+Notification.success('操作成功！');
+
+// 显示 warning 通知
+Notification.warning('请注意，这是一条警告');
+
+// 显示 error 通知
+Notification.error('操作失败，请重试');</code></pre>
+    </section>
+
+    <section class="doc-section">
+      <h2>基础演示</h2>
+      <p>点击下方按钮查看不同类型的通知效果：</p>
+      
+      <div class="demo-box notification-demo-area">
+        <div class="demo-row">
+          <button class="primary" onclick="Notification.info('这是一条信息提示')">ℹ️ Info</button>
+          <button class="primary" onclick="Notification.success('操作成功完成！')">✅ Success</button>
+          <button class="primary" onclick="Notification.warning('请注意检查输入内容')">⚠️ Warning</button>
+          <button class="danger" onclick="Notification.error('操作失败，请稍后重试')">❌ Error</button>
+        </div>
+      </div>
+
+      <h3>代码示例</h3>
+      <pre><code>// 基础用法
+Notification.info('普通信息提示');
+Notification.success('操作成功！');
+Notification.warning('警告信息');
+Notification.error('错误信息');</code></pre>
+    </section>
+
+    <section class="doc-section">
+      <h2>自定义配置</h2>
+      <p>可以通过配置对象自定义通知的各项参数：</p>
+      
+      <div class="demo-box">
+        <div class="demo-row">
+          <button class="default" onclick="Notification.show({title: '自定义标题', message: '这是一条带标题的通知消息', type: 'info', duration: 5000})">带标题通知</button>
+          <button class="default" onclick="Notification.show({message: '这条消息不会自动关闭', type: 'info', duration: 0, showClose: true})">不自动关闭</button>
+          <button class="default" onclick="Notification.show({message: '自定义持续时间 10 秒', type: 'success', duration: 10000})">10秒后关闭</button>
+        </div>
+      </div>
+
+      <h3>配置示例</h3>
+      <pre><code>// 完整配置示例
+Notification.show({
+  title: '提示',           // 通知标题（可选）
+  message: '操作成功',      // 通知内容（必填）
+  type: 'success',         // 类型：info/success/warning/error
+  duration: 5000,          // 显示时长（毫秒），0 表示不自动关闭
+  position: 'top-right',   // 位置：top-left/top-right/bottom-left/bottom-right
+  showClose: true,         // 是否显示关闭按钮
+  onClose: () => {         // 关闭回调（可选）
+    console.log('通知已关闭');
+  }
+});</code></pre>
+    </section>
+
+    <section class="doc-section">
+      <h2>位置演示</h2>
+      <p>通知可以显示在屏幕的四个角落：</p>
+      
+      <div class="demo-box">
+        <div class="demo-row">
+          <button class="default" onclick="Notification.info({message: '左上位置', position: 'top-left'})">↖️ 左上</button>
+          <button class="default" onclick="Notification.info({message: '右上位置（默认）', position: 'top-right'})">↗️ 右上</button>
+          <button class="default" onclick="Notification.info({message: '左下位置', position: 'bottom-left'})">↙️ 左下</button>
+          <button class="default" onclick="Notification.info({message: '右下位置', position: 'bottom-right'})">↘️ 右下</button>
+        </div>
+      </div>
+
+      <h3>代码示例</h3>
+      <pre><code>// 不同位置
+Notification.info({message: '左上', position: 'top-left'});
+Notification.info({message: '右上（默认）', position: 'top-right'});
+Notification.info({message: '左下', position: 'bottom-left'});
+Notification.info({message: '右下', position: 'bottom-right'});</code></pre>
+    </section>
+
+    <section class="doc-section">
+      <h2>API 参考</h2>
+      
+      <h3>Notification.show(options)</h3>
+      <p>显示通知的主要方法，接受一个配置对象。</p>
+      
+      <table class="api-table">
+        <thead>
+          <tr>
+            <th>参数</th>
+            <th>类型</th>
+            <th>必填</th>
+            <th>默认值</th>
+            <th>说明</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="param-name">message</td>
+            <td class="param-type">string</td>
+            <td class="param-required">是</td>
+            <td>-</td>
+            <td>通知的文本内容</td>
+          </tr>
+          <tr>
+            <td class="param-name">title</td>
+            <td class="param-type">string</td>
+            <td>否</td>
+            <td>-</td>
+            <td>通知标题</td>
+          </tr>
+          <tr>
+            <td class="param-name">type</td>
+            <td class="param-type">NotificationType</td>
+            <td>否</td>
+            <td>'info'</td>
+            <td>通知类型：info/success/warning/error</td>
+          </tr>
+          <tr>
+            <td class="param-name">duration</td>
+            <td class="param-type">number</td>
+            <td>否</td>
+            <td>4500</td>
+            <td>显示时长（毫秒），0 表示不自动关闭</td>
+          </tr>
+          <tr>
+            <td class="param-name">position</td>
+            <td class="param-type">NotificationPosition</td>
+            <td>否</td>
+            <td>'top-right'</td>
+            <td>显示位置</td>
+          </tr>
+          <tr>
+            <td class="param-name">showClose</td>
+            <td class="param-type">boolean</td>
+            <td>否</td>
+            <td>true</td>
+            <td>是否显示关闭按钮</td>
+          </tr>
+          <tr>
+            <td class="param-name">onClose</td>
+            <td class="param-type">() => void</td>
+            <td>否</td>
+            <td>-</td>
+            <td>关闭时的回调函数</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>快捷方法</h3>
+      <table class="api-table">
+        <thead>
+          <tr>
+            <th>方法</th>
+            <th>参数</th>
+            <th>说明</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="param-name">Notification.info(message | options)</td>
+            <td>string 或 NotificationOptions</td>
+            <td>显示 info 类型通知</td>
+          </tr>
+          <tr>
+            <td class="param-name">Notification.success(message | options)</td>
+            <td>string 或 NotificationOptions</td>
+            <td>显示 success 类型通知</td>
+          </tr>
+          <tr>
+            <td class="param-name">Notification.warning(message | options)</td>
+            <td>string 或 NotificationOptions</td>
+            <td>显示 warning 类型通知</td>
+          </tr>
+          <tr>
+            <td class="param-name">Notification.error(message | options)</td>
+            <td>string 或 NotificationOptions</td>
+            <td>显示 error 类型通知</td>
+          </tr>
+          <tr>
+            <td class="param-name">Notification.closeAll()</td>
+            <td>无</td>
+            <td>关闭所有通知</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>类型定义</h3>
+      <pre><code>type NotificationType = 'info' | 'success' | 'warning' | 'error';
+type NotificationPosition = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+
+interface NotificationOptions {
+  message: string;
+  title?: string;
+  type?: NotificationType;
+  duration?: number;
+  position?: NotificationPosition;
+  showClose?: boolean;
+  onClose?: () => void;
+}</code></pre>
+    </section>
+
+    <section class="doc-section">
+      <h2>主题适配</h2>
+      <p>消息通知组件通过读取 CSS 变量自动适配当前主题，无需额外配置。</p>
+      
+      <div class="tip-box">
+        <div class="tip-box-title">🎨 主题变量</div>
+        <p>通知组件使用以下 CSS 变量：</p>
+        <ul>
+          <li><code>--notification-bg</code> - 通知背景色</li>
+          <li><code>--notification-text</code> - 通知文字颜色</li>
+          <li><code>--notification-border</code> - 通知边框颜色</li>
+          <li><code>--notification-shadow</code> - 通知阴影</li>
+          <li><code>--notification-info</code> - info 类型颜色</li>
+          <li><code>--notification-success</code> - success 类型颜色</li>
+          <li><code>--notification-warning</code> - warning 类型颜色</li>
+          <li><code>--notification-error</code> - error 类型颜色</li>
+        </ul>
+      </div>
+
+      <h3>自定义主题变量</h3>
+      <p>如需自定义通知样式，可以覆盖以下 CSS 变量：</p>
+      <pre><code>/* 自定义通知样式 */
+.theme-light {
+  --notification-bg: #ffffff;
+  --notification-text: #333333;
+  --notification-border: #e8e8e8;
+  --notification-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.theme-dark {
+  --notification-bg: #1e1e1e;
+  --notification-text: #e0e0e0;
+  --notification-border: #434343;
+  --notification-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}</code></pre>
+    </section>
+
+    <section class="doc-section">
+      <h2>完整示例</h2>
+      <p>以下是一个完整的使用示例：</p>
+      
+      <pre><code>// 导入通知组件
+import { Notification } from './notification.js';
+
+// 显示成功通知
+Notification.success({
+  title: '提交成功',
+  message: '您的表单已成功提交，我们将尽快处理。',
+  duration: 5000,
+  position: 'top-right',
+  onClose: () => {
+    console.log('通知已关闭');
+  }
+});
+
+// 显示错误通知（不会自动关闭）
+Notification.error({
+  title: '提交失败',
+  message: '网络连接异常，请检查网络后重试。',
+  duration: 0,  // 不自动关闭
+  showClose: true
+});
+
+// 批量显示通知
+function showBatchNotifications() {
+  Notification.info('开始处理...');
+  
+  setTimeout(() => {
+    Notification.success('处理完成！');
+  }, 2000);
+}
+
+// 关闭所有通知
+Notification.closeAll();</code></pre>
+    </section>
+
+    <section class="doc-section">
+      <h2>注意事项</h2>
+      
+      <div class="tip-box warning">
+        <div class="tip-box-title">⚠️ 注意</div>
+        <p>通知组件会自动创建容器元素，无需在 HTML 中预定义。确保在 DOM 加载完成后调用通知方法。</p>
+      </div>
+
+      <div class="tip-box">
+        <div class="tip-box-title">💡 提示</div>
+        <p>建议在用户操作后显示通知（如表单提交、删除确认等），避免过于频繁地显示通知影响用户体验。</p>
+      </div>
+    </section>
+
+    <footer class="doc-footer">
+      <p>通用表单样式系统 · 支持浅色/深色双主题</p>
+    </footer>
+  </div>
+
+  <!-- 主题同步脚本 -->
+  <script>
+    // 从父页面同步主题
+    function syncThemeFromParent() {
+      try {
+        const parentTheme = window.parent.document.documentElement.classList.contains('theme-dark') ? 'dark' : 'light';
+        const html = document.documentElement;
+        if (parentTheme === 'dark') {
+          html.classList.remove('theme-light');
+          html.classList.add('theme-dark');
+        } else {
+          html.classList.remove('theme-dark');
+          html.classList.add('theme-light');
+        }
+      } catch (e) {
+        // 如果无法访问父页面，使用 localStorage
+        const savedTheme = localStorage.getItem('form-theme') || 'light';
+        const html = document.documentElement;
+        if (savedTheme === 'dark') {
+          html.classList.remove('theme-light');
+          html.classList.add('theme-dark');
+        } else {
+          html.classList.remove('theme-dark');
+          html.classList.add('theme-light');
+        }
+      }
+    }
+
+    // 页面加载时同步主题
+    syncThemeFromParent();
+
+    // 监听父页面的主题变化（通过 postMessage）
+    window.addEventListener('message', function(e) {
+      if (e.data && e.data.type === 'theme-change') {
+        const html = document.documentElement;
+        if (e.data.theme === 'dark') {
+          html.classList.remove('theme-light');
+          html.classList.add('theme-dark');
+        } else {
+          html.classList.remove('theme-dark');
+          html.classList.add('theme-light');
+        }
+      }
+    });
+  </script>
+
+  <!-- 引入通知组件 -->
+  <script type="module">
+    import { Notification } from '../js/notification.js';
+    // 将 Notification 暴露到全局，供 onclick 使用
+    window.Notification = Notification;
+  </script>
+</body>
+</html>

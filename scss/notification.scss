@@ -1,0 +1,343 @@
+/**
+ * 消息通知组件样式
+ * 支持浅色/深色主题，通过 CSS 变量自动适配
+ */
+
+// 通知容器 - 固定在屏幕右上角
+.notification-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 400px;
+  pointer-events: none; // 让点击穿透容器，只让通知卡片接收事件
+}
+
+// 单个通知卡片
+.notification {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 20px;
+  border-radius: 8px;
+  background-color: var(--app-bg-surface);
+  border: 1px solid var(--form-border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  pointer-events: auto; // 恢复点击事件
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateX(100%);
+  animation: notification-slide-in 0.3s ease forwards;
+
+  // 悬停效果
+  &:hover {
+    border-color: var(--form-border-hover);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  // 退出动画
+  &.exiting {
+    animation: notification-slide-out 0.3s ease forwards;
+  }
+
+  // 类型变体 - 信息
+  &.info {
+    border-left: 4px solid var(--color-info);
+    background-color: rgba(24, 144, 255, 0.1);
+
+    .notification-icon {
+      color: var(--color-info);
+    }
+
+    .notification-title {
+      color: var(--color-info);
+    }
+  }
+
+  // 类型变体 - 成功
+  &.success {
+    border-left: 4px solid var(--color-success);
+    background-color: rgba(82, 196, 26, 0.1);
+
+    .notification-icon {
+      color: var(--color-success);
+    }
+
+    .notification-title {
+      color: var(--color-success);
+    }
+  }
+
+  // 类型变体 - 警告
+  &.warning {
+    border-left: 4px solid var(--color-warning);
+    background-color: rgba(250, 173, 20, 0.1);
+
+    .notification-icon {
+      color: var(--color-warning);
+    }
+
+    .notification-title {
+      color: var(--color-warning);
+    }
+  }
+
+  // 类型变体 - 错误
+  &.error {
+    border-left: 4px solid var(--color-error);
+    background-color: rgba(255, 77, 79, 0.1);
+
+    .notification-icon {
+      color: var(--color-error);
+    }
+
+    .notification-title {
+      color: var(--color-error);
+    }
+  }
+}
+
+// 通知图标
+.notification-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  margin-top: 2px;
+}
+
+// 通知内容区
+.notification-content {
+  flex: 1;
+  min-width: 0;
+}
+
+// 通知标题
+.notification-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--form-text);
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+// 通知描述
+.notification-description {
+  font-size: 13px;
+  color: var(--form-text);
+  opacity: 0.85;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+// 关闭按钮
+.notification-close {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--form-placeholder);
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  margin-top: 2px;
+  padding: 0;
+
+  &:hover {
+    background-color: var(--bg-disabled);
+    color: var(--form-text);
+  }
+}
+
+// 进度条（自动关闭时显示）
+.notification-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background-color: currentColor;
+  opacity: 0.3;
+  border-radius: 0 0 0 8px;
+  transition: width linear;
+}
+
+// 带进度条的通知需要相对定位
+.notification.has-progress {
+  position: relative;
+  overflow: hidden;
+
+  &.info .notification-progress {
+    color: var(--form-border-focus);
+  }
+
+  &.success .notification-progress {
+    color: var(--form-success);
+  }
+
+  &.warning .notification-progress {
+    color: var(--form-warning);
+  }
+
+  &.error .notification-progress {
+    color: var(--form-error);
+  }
+}
+
+// 进入动画
+@keyframes notification-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// 退出动画
+@keyframes notification-slide-out {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+// 从顶部滑入的变体（用于顶部居中显示）
+.notification-container.top-center {
+  top: 20px;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  align-items: center;
+
+  .notification {
+    transform: translateY(-100%);
+    animation: notification-slide-down 0.3s ease forwards;
+
+    &.exiting {
+      animation: notification-slide-up 0.3s ease forwards;
+    }
+  }
+}
+
+@keyframes notification-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes notification-slide-up {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
+// 从底部滑入的变体（用于底部显示）
+.notification-container.bottom-right {
+  top: auto;
+  bottom: 20px;
+  right: 20px;
+
+  .notification {
+    transform: translateX(100%);
+    animation: notification-slide-in 0.3s ease forwards;
+  }
+}
+
+.notification-container.bottom-left {
+  top: auto;
+  left: 20px;
+  right: auto;
+  bottom: 20px;
+
+  .notification {
+    transform: translateX(-100%);
+    animation: notification-slide-in-left 0.3s ease forwards;
+
+    &.exiting {
+      animation: notification-slide-out-left 0.3s ease forwards;
+    }
+  }
+}
+
+@keyframes notification-slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes notification-slide-out-left {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+// 深色模式适配
+.theme-dark {
+  .notification {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+
+    &:hover {
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+    }
+
+    // 深色模式下使用更不透明的背景
+    &.info {
+      background-color: rgba(24, 144, 255, 0.2);
+    }
+
+    &.success {
+      background-color: rgba(82, 196, 26, 0.2);
+    }
+
+    &.warning {
+      background-color: rgba(250, 173, 20, 0.2);
+    }
+
+    &.error {
+      background-color: rgba(255, 77, 79, 0.2);
+    }
+  }
+
+  .notification-description {
+    opacity: 0.95;
+    color: var(--form-text);
+  }
+}
