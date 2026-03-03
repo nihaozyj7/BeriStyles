@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="theme-dark">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>单选框 Radio</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="./doc-styles.css">
+  </head>
+
+  <body>
+    <div class="doc-container">
+      <header class="doc-header">
+        <h1>🔘 单选框 (Radio)</h1>
+        <p>样式直接作用于 input[type="radio"] 标签，同一 name 的选项互斥。</p>
+      </header>
+
+      <section class="doc-section">
+        <h2>可用类名</h2>
+        <table class="class-table">
+          <thead>
+            <tr>
+              <th>类名</th>
+              <th>说明</th>
+              <th>效果</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>（无）</code></td>
+              <td>默认样式</td>
+              <td>尺寸 16×16px</td>
+            </tr>
+            <tr>
+              <td><code>.small</code></td>
+              <td>小尺寸</td>
+              <td>尺寸 12×12px</td>
+            </tr>
+            <tr>
+              <td><code>.large</code></td>
+              <td>大尺寸</td>
+              <td>尺寸 20×20px</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="doc-section">
+        <h2>基础用法</h2>
+        <div class="demo-box">
+          <div class="demo-row" style="flex-direction: column; align-items: flex-start; gap: 12px;">
+            <div style="font-weight: 500; margin-bottom: 8px;">请选择性别：</div>
+            <label>
+              <input type="radio" name="gender" value="male" checked> 男
+            </label>
+            <label>
+              <input type="radio" name="gender" value="female"> 女
+            </label>
+            <label>
+              <input type="radio" name="gender" value="other"> 其他
+            </label>
+          </div>
+        </div>
+
+        <h3>使用示例</h3>
+        <pre><code>&lt;label&gt;
+  &lt;input type="radio" name="gender" value="male" checked&gt; 男
+&lt;/label&gt;
+&lt;label&gt;
+  &lt;input type="radio" name="gender" value="female"&gt; 女
+&lt;/label&gt;
+&lt;label&gt;
+  &lt;input type="radio" name="gender" value="other"&gt; 其他
+&lt;/label&gt;</code></pre>
+      </section>
+
+      <section class="doc-section">
+        <h2>尺寸演示</h2>
+        <div class="demo-box">
+          <div class="demo-row">
+            <label>
+              <input type="radio" name="size-demo" class="small" checked> 小号 (12px)
+            </label>
+            <label>
+              <input type="radio" name="size-demo"> 默认 (16px)
+            </label>
+            <label>
+              <input type="radio" name="size-demo" class="large"> 大号 (20px)
+            </label>
+          </div>
+        </div>
+
+        <h3>使用示例</h3>
+        <pre><code>&lt;!-- 小号单选框 --&gt;
+&lt;input type="radio" name="group" class="small"&gt;
+
+&lt;!-- 默认单选框 --&gt;
+&lt;input type="radio" name="group"&gt;
+
+&lt;!-- 大号单选框 --&gt;
+&lt;input type="radio" name="group" class="large"&gt;</code></pre>
+      </section>
+
+      <section class="doc-section">
+        <h2>状态演示</h2>
+        <div class="demo-box">
+          <div class="demo-row">
+            <label>
+              <input type="radio" name="state-demo" checked> 已选中
+            </label>
+            <label>
+              <input type="radio" name="state-demo"> 未选中
+            </label>
+            <label>
+              <input type="radio" name="state-demo2" disabled> 禁用未选
+            </label>
+            <label>
+              <input type="radio" name="state-demo2" disabled checked> 禁用已选
+            </label>
+          </div>
+        </div>
+
+        <h3>使用示例</h3>
+        <pre><code>&lt;!-- 正常状态 --&gt;
+&lt;input type="radio" name="group" checked&gt;
+&lt;input type="radio" name="group"&gt;
+
+&lt;!-- 禁用状态 --&gt;
+&lt;input type="radio" name="group" disabled&gt;
+&lt;input type="radio" name="group" disabled checked&gt;</code></pre>
+      </section>
+
+      <section class="doc-section">
+        <h2>多组单选框</h2>
+        <div class="demo-box">
+          <div style="margin-bottom: 20px;">
+            <div style="font-weight: 500; margin-bottom: 12px;">性别：</div>
+            <div class="demo-row">
+              <label><input type="radio" name="gender2" value="male" checked> 男</label>
+              <label><input type="radio" name="gender2" value="female"> 女</label>
+            </div>
+          </div>
+          <div>
+            <div style="font-weight: 500; margin-bottom: 12px;">学历：</div>
+            <div class="demo-row">
+              <label><input type="radio" name="education" value="high" checked> 高中</label>
+              <label><input type="radio" name="education" value="college"> 大专</label>
+              <label><input type="radio" name="education" value="bachelor"> 本科</label>
+              <label><input type="radio" name="education" value="master"> 硕士及以上</label>
+            </div>
+          </div>
+        </div>
+
+        <h3>使用示例</h3>
+        <pre><code>&lt;!-- 第一组 --&gt;
+&lt;input type="radio" name="gender" value="male"&gt; 男
+&lt;input type="radio" name="gender" value="female"&gt; 女
+
+&lt;!-- 第二组（不同的 name） --&gt;
+&lt;input type="radio" name="education" value="high"&gt; 高中
+&lt;input type="radio" name="education" value="college"&gt; 大专</code></pre>
+
+        <div class="tip-box">
+          <div class="tip-box-title">💡 重要提示</div>
+          <p>同一组单选框必须使用相同的 <code>name</code> 属性，这样才能实现互斥选择的效果。不同组的单选框应使用不同的 name。</p>
+        </div>
+      </section>
+
+      <section class="doc-section">
+        <h2>实际应用场景</h2>
+        <div class="demo-box">
+          <div style="margin-bottom: 20px;">
+            <div style="font-weight: 500; margin-bottom: 12px;">支付方式：</div>
+            <div class="demo-row">
+              <label><input type="radio" name="payment" value="alipay" checked> 支付宝</label>
+              <label><input type="radio" name="payment" value="wechat"> 微信支付</label>
+              <label><input type="radio" name="payment" value="card"> 银行卡</label>
+            </div>
+          </div>
+          <div>
+            <div style="font-weight: 500; margin-bottom: 12px;">配送方式：</div>
+            <div class="demo-row">
+              <label><input type="radio" name="delivery" value="express" checked> 快递配送</label>
+              <label><input type="radio" name="delivery" value="self"> 自提</label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="doc-footer">
+        <p>通用表单样式系统 · 支持浅色/深色双主题</p>
+      </footer>
+    </div>
+  </body>
+
+</html>

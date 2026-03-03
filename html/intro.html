@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="theme-dark">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简介与快速开始</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="./doc-styles.css">
+  </head>
+
+  <body>
+    <div class="doc-container">
+      <!-- 文档头部 -->
+      <header class="doc-header">
+        <h1>📝 通用表单样式</h1>
+        <p>一套轻量级、支持浅色/深色双主题的现代表单样式系统，基于 SCSS 构建。</p>
+      </header>
+
+      <!-- 特性 -->
+      <section class="doc-section">
+        <h2>✨ 特性</h2>
+        <ul>
+          <li>🌓 <strong>双主题支持</strong> - 内置浅色/深色主题，一键切换</li>
+          <li>🏷️ <strong>标签优先</strong> - 默认样式直接作用于 HTML 标签，无需额外类名</li>
+          <li>📐 <strong>尺寸可控</strong> - 通过 <code>.small</code> / <code>.large</code> 类名快速切换尺寸</li>
+          <li>🎨 <strong>类型丰富</strong> - 支持输入框、文本域、下拉框、按钮、复选框、单选框、开关等</li>
+          <li>⚡ <strong>轻量易用</strong> - 纯 CSS 实现，无 JavaScript 依赖</li>
+          <li>🔧 <strong>可定制</strong> - 基于 SCSS 变量，易于扩展和自定义</li>
+        </ul>
+      </section>
+
+      <!-- 设计理念 -->
+      <section class="doc-section">
+        <h2>💡 设计理念</h2>
+        <p>本样式系统采用<strong>标签优先</strong>的设计方式：</p>
+        <ul>
+          <li><strong>默认样式</strong>：直接作用于 HTML 标签（如 <code>&lt;input&gt;</code>、<code>&lt;button&gt;</code>），无需添加类名</li>
+          <li><strong>尺寸控制</strong>：通过 <code>.small</code> 和 <code>.large</code> 类名切换尺寸（默认中号）</li>
+          <li><strong>类型变体</strong>：通过 <code>.primary</code>、<code>.danger</code> 等类名切换样式变体</li>
+          <li><strong>状态修饰</strong>：通过 <code>.is-error</code>、<code>.is-success</code> 等类名表示状态</li>
+        </ul>
+      </section>
+
+      <!-- 快速开始 -->
+      <section class="doc-section">
+        <h2>🚀 快速开始</h2>
+
+        <h3>1. 安装依赖</h3>
+        <pre><code>pnpm install</code></pre>
+
+        <h3>2. 编译样式</h3>
+        <pre><code>pnpm run build:css</code></pre>
+
+        <h3>3. 引入样式</h3>
+        <p>在 HTML 文件中引入编译后的 CSS：</p>
+        <pre><code>&lt;link rel="stylesheet" href="./css/style.css"&gt;</code></pre>
+
+        <h3>4. 设置主题</h3>
+        <p>在 <code>&lt;html&gt;</code> 或任意父元素上添加主题类名：</p>
+        <pre><code>&lt;!-- 浅色主题 --&gt;
+&lt;html class="theme-light"&gt;
+
+&lt;!-- 深色主题 --&gt;
+&lt;html class="theme-dark"&gt;</code></pre>
+
+        <h3>5. 切换主题（JavaScript）</h3>
+        <pre><code>// 切换到深色主题
+document.documentElement.classList.remove('theme-light');
+document.documentElement.classList.add('theme-dark');
+
+// 或切换主题
+document.documentElement.classList.toggle('theme-light');
+document.documentElement.classList.toggle('theme-dark');</code></pre>
+      </section>
+
+      <!-- 文件结构 -->
+      <section class="doc-section">
+        <h2>📁 文件结构</h2>
+        <pre><code>.
+├── css/                    # 编译后的 CSS 文件
+├── scss/                   # SCSS 源文件
+│   ├── style.scss         # 主入口文件
+│   ├── theme.scss         # 主题变量
+│   ├── form.scss          # 表单基础样式
+│   └── checkbox.scss      # 复选框样式
+├── html/                   # 文档页面
+├── ts/                     # TypeScript 源文件
+├── js/                     # 编译后的 JS 文件
+├── index.html             # 文档主页
+├── package.json           # 项目配置
+└── README.md              # 说明文档</code></pre>
+      </section>
+
+      <!-- 开发指南 -->
+      <section class="doc-section">
+        <h2>🛠️ 开发指南</h2>
+
+        <h3>修改主题颜色</h3>
+        <p>编辑 <code>scss/theme.scss</code> 中的 <code>$themes</code> 映射：</p>
+        <pre><code>$themes: (
+  light: (
+    bg-body: #ffffff,
+    form-border: #d9d9d9,
+    // ... 更多变量
+  ),
+  dark: (
+    bg-body: #121212,
+    form-border: #434343,
+    // ... 更多变量
+  )
+);</code></pre>
+
+        <h3>添加新组件</h3>
+        <ol>
+          <li>在 <code>scss/</code> 目录下创建新的 SCSS 文件</li>
+          <li>在 <code>scss/style.scss</code> 中引入：<code>@import './new-component.scss';</code></li>
+          <li>运行 <code>pnpm run build:css</code> 编译</li>
+        </ol>
+
+        <h3>添加新主题</h3>
+        <ol>
+          <li>在 <code>scss/theme.scss</code> 的 <code>$themes</code> 中添加新主题配置</li>
+          <li>在 HTML 中使用：<code>&lt;html class="theme-newtheme"&gt;</code></li>
+        </ol>
+      </section>
+
+      <!-- 页脚 -->
+      <footer class="doc-footer">
+        <p>通用表单样式系统 · 支持浅色/深色双主题 · 标签优先设计</p>
+      </footer>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="theme-dark">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开关 Switch</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="./doc-styles.css">
+  </head>
+
+  <body>
+    <div class="doc-container">
+      <header class="doc-header">
+        <h1>🔄 开关 (Switch)</h1>
+        <p>使用 .switch 类包裹 input[type="checkbox"] 和 .slider 元素，用于表示开/关状态。</p>
+      </header>
+
+      <section class="doc-section">
+        <h2>可用类名</h2>
+        <table class="class-table">
+          <thead>
+            <tr>
+              <th>类名</th>
+              <th>说明</th>
+              <th>效果</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>.switch</code></td>
+              <td>开关容器（必须）</td>
+              <td>默认尺寸 44×22px</td>
+            </tr>
+            <tr>
+              <td><code>.small</code></td>
+              <td>小尺寸开关</td>
+              <td>尺寸 32×16px</td>
+            </tr>
+            <tr>
+              <td><code>.large</code></td>
+              <td>大尺寸开关</td>
+              <td>尺寸 56×28px</td>
+            </tr>
+            <tr>
+              <td><code>.slider</code></td>
+              <td>滑块元素（必须）</td>
+              <td>开关的滑动部分</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="doc-section">
+        <h2>基础用法</h2>
+        <div class="demo-box">
+          <div class="demo-row">
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider"></span>
+            </label>
+            <span>关</span>
+          </div>
+          <div class="demo-row">
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider"></span>
+            </label>
+            <span>开</span>
+          </div>
+          <div class="demo-row">
+            <label class="switch">
+              <input type="checkbox" disabled>
+              <span class="slider"></span>
+            </label>
+            <span>禁用（关）</span>
+          </div>
+          <div class="demo-row">
+            <label class="switch">
+              <input type="checkbox" disabled checked>
+              <span class="slider"></span>
+            </label>
+            <span>禁用（开）</span>
+          </div>
+        </div>
+
+        <h3>使用示例</h3>
+        <pre><code>&lt;!-- 默认开关 --&gt;
+&lt;label class="switch"&gt;
+  &lt;input type="checkbox"&gt;
+  &lt;span class="slider"&gt;&lt;/span&gt;
+&lt;/label&gt;
+
+&lt;!-- 默认开启 --&gt;
+&lt;label class="switch"&gt;
+  &lt;input type="checkbox" checked&gt;
+  &lt;span class="slider"&gt;&lt;/span&gt;
+&lt;/label&gt;
+
+&lt;!-- 禁用状态 --&gt;
+&lt;label class="switch"&gt;
+  &lt;input type="checkbox" disabled&gt;
+  &lt;span class="slider"&gt;&lt;/span&gt;
+&lt;/label&gt;</code></pre>
+      </section>
+
+      <section class="doc-section">
+        <h2>尺寸演示</h2>
+        <div class="demo-box">
+          <div class="demo-row">
+            <label class="switch small">
+              <input type="checkbox">
+              <span class="slider"></span>
+            </label>
+            <span>小号 (32×16px)</span>
+          </div>
+          <div class="demo-row">
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider"></span>
+            </label>
+            <span>默认 (44×22px)</span>
+          </div>
+          <div class="demo-row">
+            <label class="switch large">
+              <input type="checkbox">
+              <span class="slider"></span>
+            </label>
+            <span>大号 (56×28px)</span>
+          </div>
+        </div>
+
+        <h3>使用示例</h3>
+        <pre><code>&lt;!-- 小号开关 --&gt;
+&lt;label class="switch small"&gt;
+  &lt;input type="checkbox"&gt;
+  &lt;span class="slider"&gt;&lt;/span&gt;
+&lt;/label&gt;
+
+&lt;!-- 大号开关 --&gt;
+&lt;label class="switch large"&gt;
+  &lt;input type="checkbox"&gt;
+  &lt;span class="slider"&gt;&lt;/span&gt;
+&lt;/label&gt;</code></pre>
+      </section>
+
+      <section class="doc-section">
+        <h2>实际应用场景</h2>
+        <div class="demo-box">
+          <div class="demo-row" style="justify-content: space-between; max-width: 400px;">
+            <span>接收邮件通知</span>
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="demo-row" style="justify-content: space-between; max-width: 400px;">
+            <span>自动更新</span>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="demo-row" style="justify-content: space-between; max-width: 400px;">
+            <span>深色模式</span>
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="demo-row" style="justify-content: space-between; max-width: 400px;">
+            <span>位置服务（已禁用）</span>
+            <label class="switch">
+              <input type="checkbox" disabled>
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <h3>使用示例</h3>
+        <pre><code>&lt;div class="form-group"&gt;
+  &lt;label&gt;接收邮件通知&lt;/label&gt;
+  &lt;label class="switch"&gt;
+    &lt;input type="checkbox" checked&gt;
+    &lt;span class="slider"&gt;&lt;/span&gt;
+  &lt;/label&gt;
+&lt;/div&gt;</code></pre>
+      </section>
+
+      <section class="doc-section">
+        <h2>与复选框对比</h2>
+        <table class="class-table">
+          <thead>
+            <tr>
+              <th>特性</th>
+              <th>Switch</th>
+              <th>Checkbox</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>视觉样式</td>
+              <td>滑动开关</td>
+              <td>方框勾选</td>
+            </tr>
+            <tr>
+              <td>适用场景</td>
+              <td>设置项开关、功能启用/禁用</td>
+              <td>多选项、列表选择</td>
+            </tr>
+            <tr>
+              <td>交互反馈</td>
+              <td>滑动动画</td>
+              <td>勾选动画</td>
+            </tr>
+            <tr>
+              <td>HTML 结构</td>
+              <td>需要 label 包裹</td>
+              <td>可直接使用</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="tip-box">
+          <div class="tip-box-title">💡 使用建议</div>
+          <p>开关（Switch）更适合表示功能的开启/关闭状态，通常用于设置页面；复选框（Checkbox）更适合表示选项的选择状态，通常用于表单。</p>
+        </div>
+      </section>
+
+      <footer class="doc-footer">
+        <p>通用表单样式系统 · 支持浅色/深色双主题</p>
+      </footer>
+    </div>
+  </body>
+
+</html>

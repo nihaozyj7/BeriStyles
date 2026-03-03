@@ -10,6 +10,7 @@
 - 🎨 **类型丰富** - 支持输入框、文本域、下拉框、按钮、复选框、单选框、开关等
 - ⚡ **轻量易用** - 纯 CSS 实现，无 JavaScript 依赖
 - 🔧 **可定制** - 基于 SCSS 变量，易于扩展和自定义
+- 📖 **完整文档** - 模块化文档站点，iframe 方式展示
 
 ## 🚀 快速开始
 
@@ -19,13 +20,27 @@
 pnpm install
 ```
 
-### 2. 编译样式
+### 2. 编译构建
 
 ```bash
+# 构建所有（CSS + JS）
+pnpm run build
+
+# 仅构建 CSS
 pnpm run build:css
+
+# 仅构建 JS
+pnpm run build:js
+
+# 开发模式（监听文件变化）
+pnpm run dev
 ```
 
-### 3. 引入样式
+### 3. 查看文档
+
+打开 `index.html` 文件即可查看完整文档。
+
+### 4. 引入样式
 
 在 HTML 文件中引入编译后的 CSS：
 
@@ -33,7 +48,7 @@ pnpm run build:css
 <link rel="stylesheet" href="./css/style.css">
 ```
 
-### 4. 设置主题
+### 5. 设置主题
 
 在 `<html>` 或任意父元素上添加主题类名：
 
@@ -45,7 +60,7 @@ pnpm run build:css
 <html class="theme-dark">
 ```
 
-### 5. 切换主题（JavaScript）
+### 6. 切换主题（JavaScript）
 
 ```javascript
 // 切换到深色主题
@@ -163,8 +178,24 @@ document.documentElement.classList.toggle('theme-dark');
 │   ├── theme.scss         # 主题变量
 │   ├── form.scss          # 表单基础样式
 │   └── checkbox.scss      # 复选框样式
-├── index.html             # 文档和演示页面
+├── html/                   # 文档页面目录
+│   ├── intro.html         # 简介与快速开始
+│   ├── input.html         # 输入框文档
+│   ├── textarea.html      # 文本域文档
+│   ├── select.html        # 下拉框文档
+│   ├── button.html        # 按钮文档
+│   ├── checkbox.html      # 复选框文档
+│   ├── radio.html         # 单选框文档
+│   ├── switch.html        # 开关文档
+│   ├── form-group.html    # 表单组合文档
+│   ├── theme.html         # 主题系统文档
+│   └── example.html       # 完整示例
+├── ts/                     # TypeScript 源文件
+│   └── main.ts            # 主脚本（主题切换等）
+├── js/                     # 编译后的 JS 文件
+├── index.html             # 文档主页（导航框架）
 ├── package.json           # 项目配置
+├── tsconfig.json          # TypeScript 配置
 └── README.md              # 本文件
 ```
 
@@ -194,11 +225,25 @@ $themes: (
 1. 在 `scss/` 目录下创建新的 SCSS 文件
 2. 在 `scss/style.scss` 中引入：`@import './new-component.scss';`
 3. 运行 `pnpm run build:css` 编译
+4. 在 `html/` 目录创建对应的文档页面
 
 ### 添加新主题
 
 1. 在 `scss/theme.scss` 的 `$themes` 中添加新主题配置
 2. 在 HTML 中使用：`<html class="theme-newtheme">`
+
+## 📝 可用脚本
+
+| 命令 | 说明 |
+|------|------|
+| `pnpm install` | 安装依赖 |
+| `pnpm run build` | 构建所有（CSS + JS） |
+| `pnpm run build:css` | 编译 SCSS 到 CSS |
+| `pnpm run build:css:watch` | 监听 SCSS 变化并编译 |
+| `pnpm run build:js` | 编译 TypeScript 到 JS |
+| `pnpm run build:js:watch` | 监听 TS 变化并编译 |
+| `pnpm run dev` | 开发模式（同时监听 CSS 和 JS） |
+| `pnpm run clean` | 清理编译输出 |
 
 ## 📄 许可证
 

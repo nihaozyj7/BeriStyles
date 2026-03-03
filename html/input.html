@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="theme-dark">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>输入框 Input</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="./doc-styles.css">
+  </head>
+
+  <body>
+    <div class="doc-container">
+      <header class="doc-header">
+        <h1>📥 输入框 (Input)</h1>
+        <p>样式直接作用于 input 标签，支持多种类型和状态。</p>
+      </header>
+
+      <section class="doc-section">
+        <h2>支持的类型</h2>
+        <p>以下 input 类型均已应用默认样式：</p>
+        <ul>
+          <li><code>text</code> - 文本输入</li>
+          <li><code>password</code> - 密码输入</li>
+          <li><code>email</code> - 邮箱输入</li>
+          <li><code>number</code> - 数字输入</li>
+          <li><code>search</code> - 搜索框</li>
+          <li><code>tel</code> - 电话输入</li>
+          <li><code>url</code> - URL 输入</li>
+          <li><code>date</code> - 日期选择</li>
+          <li><code>datetime-local</code> - 日期时间选择</li>
+          <li><code>month</code> - 月份选择</li>
+          <li><code>time</code> - 时间选择</li>
+          <li><code>week</code> - 周选择</li>
+        </ul>
+      </section>
+
+      <section class="doc-section">
+        <h2>可用类名</h2>
+        <table class="class-table">
+          <thead>
+            <tr>
+              <th>类名</th>
+              <th>说明</th>
+              <th>效果</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>（无）</code></td>
+              <td>默认样式</td>
+              <td>中号尺寸，高度 32px</td>
+            </tr>
+            <tr>
+              <td><code>.small</code></td>
+              <td>小尺寸</td>
+              <td>高度 24px，字体 12px</td>
+            </tr>
+            <tr>
+              <td><code>.large</code></td>
+              <td>大尺寸</td>
+              <td>高度 40px，字体 16px</td>
+            </tr>
+            <tr>
+              <td><code>.is-error</code></td>
+              <td>错误状态</td>
+              <td>红色边框，用于表单验证失败</td>
+            </tr>
+            <tr>
+              <td><code>.is-success</code></td>
+              <td>成功状态</td>
+              <td>绿色边框，用于验证通过</td>
+            </tr>
+            <tr>
+              <td><code>.is-warning</code></td>
+              <td>警告状态</td>
+              <td>黄色边框，用于警告提示</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="doc-section">
+        <h2>尺寸演示</h2>
+        <div class="demo-box">
+          <div class="demo-row">
+            <input type="text" placeholder="默认中号 (32px)" style="width: 180px;">
+            <input type="text" class="small" placeholder="小号 (24px)" style="width: 150px;">
+            <input type="text" class="large" placeholder="大号 (40px)" style="width: 200px;">
+          </div>
+        </div>
+
+        <h3>使用示例</h3>
+        <pre><code>&lt;!-- 默认中号输入框 --&gt;
+&lt;input type="text" placeholder="请输入..."&gt;
+
+&lt;!-- 小号输入框 --&gt;
+&lt;input type="text" class="small" placeholder="小号..."&gt;
+
+&lt;!-- 大号输入框 --&gt;
+&lt;input type="text" class="large" placeholder="大号..."&gt;</code></pre>
+      </section>
+
+      <section class="doc-section">
+        <h2>类型演示</h2>
+        <div class="demo-box">
+          <div class="demo-row">
+            <input type="text" placeholder="文本输入" style="width: 180px;">
+            <input type="password" placeholder="密码输入" style="width: 180px;">
+            <input type="email" placeholder="邮箱输入" style="width: 180px;">
+          </div>
+          <div class="demo-row">
+            <input type="number" placeholder="数字输入" style="width: 180px;">
+            <input type="search" placeholder="搜索框" style="width: 180px;">
+            <input type="tel" placeholder="电话输入" style="width: 180px;">
+          </div>
+          <div class="demo-row">
+            <input type="date" style="width: 180px;">
+            <input type="time" style="width: 180px;">
+            <input type="month" style="width: 180px;">
+          </div>
+        </div>
+
+        <h3>使用示例</h3>
+        <pre><code>&lt;input type="text" placeholder="请输入文本"&gt;
+&lt;input type="password" placeholder="请输入密码"&gt;
+&lt;input type="email" placeholder="请输入邮箱"&gt;
+&lt;input type="number" placeholder="请输入数字"&gt;</code></pre>
+      </section>
+
+      <section class="doc-section">
+        <h2>状态演示</h2>
+        <div class="demo-box">
+          <div class="demo-row">
+            <input type="text" class="is-error" placeholder="错误状态" value="输入有误" style="width: 180px;">
+            <input type="text" class="is-success" placeholder="成功状态" value="验证通过" style="width: 180px;">
+            <input type="text" class="is-warning" placeholder="警告状态" value="请注意" style="width: 180px;">
+          </div>
+          <div class="demo-row">
+            <input type="text" placeholder="禁用状态" disabled style="width: 180px;">
+            <input type="text" placeholder="只读状态" readonly value="不可编辑" style="width: 180px;">
+            <input type="text" placeholder="正常状态" style="width: 180px;">
+          </div>
+        </div>
+
+        <h3>使用示例</h3>
+        <pre><code>&lt;!-- 错误状态 --&gt;
+&lt;input type="text" class="is-error" value="输入有误"&gt;
+
+&lt;!-- 成功状态 --&gt;
+&lt;input type="text" class="is-success" value="验证通过"&gt;
+
+&lt;!-- 警告状态 --&gt;
+&lt;input type="text" class="is-warning" value="请注意"&gt;
+
+&lt;!-- 禁用状态 --&gt;
+&lt;input type="text" disabled&gt;
+
+&lt;!-- 只读状态 --&gt;
+&lt;input type="text" readonly value="不可编辑"&gt;</code></pre>
+      </section>
+
+      <section class="doc-section">
+        <h2>组合使用</h2>
+        <div class="demo-box">
+          <div class="demo-row">
+            <input type="text" class="small is-error" placeholder="小号错误" style="width: 150px;">
+            <input type="text" class="large is-success" placeholder="大号成功" style="width: 200px;">
+            <input type="password" class="is-warning" placeholder="密码警告" style="width: 180px;">
+          </div>
+        </div>
+
+        <div class="tip-box">
+          <div class="tip-box-title">💡 提示</div>
+          <p>尺寸类名（.small/.large）和状态类名（.is-error/.is-success/.is-warning）可以同时使用，它们作用于不同的 CSS 属性。</p>
+        </div>
+      </section>
+
+      <footer class="doc-footer">
+        <p>通用表单样式系统 · 支持浅色/深色双主题</p>
+      </footer>
+    </div>
+  </body>
+
+</html>

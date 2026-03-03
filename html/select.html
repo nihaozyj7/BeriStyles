@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="theme-dark">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下拉框 Select</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="./doc-styles.css">
+  </head>
+
+  <body>
+    <div class="doc-container">
+      <header class="doc-header">
+        <h1>📋 下拉框 (Select)</h1>
+        <p>样式直接作用于 select 标签，支持尺寸和状态修饰。</p>
+      </header>
+
+      <section class="doc-section">
+        <h2>可用类名</h2>
+        <table class="class-table">
+          <thead>
+            <tr>
+              <th>类名</th>
+              <th>说明</th>
+              <th>效果</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>（无）</code></td>
+              <td>默认样式</td>
+              <td>高度 32px</td>
+            </tr>
+            <tr>
+              <td><code>.small</code></td>
+              <td>小尺寸</td>
+              <td>高度 24px，字体 12px</td>
+            </tr>
+            <tr>
+              <td><code>.large</code></td>
+              <td>大尺寸</td>
+              <td>高度 40px，字体 16px</td>
+            </tr>
+            <tr>
+              <td><code>.is-error</code></td>
+              <td>错误状态</td>
+              <td>红色边框</td>
+            </tr>
+            <tr>
+              <td><code>.is-success</code></td>
+              <td>成功状态</td>
+              <td>绿色边框</td>
+            </tr>
+            <tr>
+              <td><code>.is-warning</code></td>
+              <td>警告状态</td>
+              <td>黄色边框</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="doc-section">
+        <h2>尺寸演示</h2>
+        <div class="demo-box">
+          <div class="demo-row">
+            <select style="width: 150px;">
+              <option>默认中号</option>
+              <option>选项二</option>
+              <option>选项三</option>
+            </select>
+            <select class="small" style="width: 130px;">
+              <option>小号</option>
+              <option>选项二</option>
+            </select>
+            <select class="large" style="width: 170px;">
+              <option>大号</option>
+              <option>选项二</option>
+            </select>
+          </div>
+        </div>
+
+        <h3>使用示例</h3>
+        <pre><code>&lt;!-- 默认下拉框 --&gt;
+&lt;select&gt;
+  &lt;option&gt;选项一&lt;/option&gt;
+  &lt;option&gt;选项二&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;!-- 小号下拉框 --&gt;
+&lt;select class="small"&gt;...&lt;/select&gt;
+
+&lt;!-- 大号下拉框 --&gt;
+&lt;select class="large"&gt;...&lt;/select&gt;</code></pre>
+      </section>
+
+      <section class="doc-section">
+        <h2>状态演示</h2>
+        <div class="demo-box">
+          <div class="demo-row">
+            <select class="is-error" style="width: 150px;">
+              <option>错误状态</option>
+            </select>
+            <select class="is-success" style="width: 150px;">
+              <option>成功状态</option>
+            </select>
+            <select class="is-warning" style="width: 150px;">
+              <option>警告状态</option>
+            </select>
+            <select disabled style="width: 150px;">
+              <option>禁用状态</option>
+            </select>
+          </div>
+        </div>
+
+        <h3>使用示例</h3>
+        <pre><code>&lt;!-- 错误状态 --&gt;
+&lt;select class="is-error"&gt;...&lt;/select&gt;
+
+&lt;!-- 成功状态 --&gt;
+&lt;select class="is-success"&gt;...&lt;/select&gt;
+
+&lt;!-- 警告状态 --&gt;
+&lt;select class="is-warning"&gt;...&lt;/select&gt;
+
+&lt;!-- 禁用状态 --&gt;
+&lt;select disabled&gt;...&lt;/select&gt;</code></pre>
+      </section>
+
+      <section class="doc-section">
+        <h2>常用示例</h2>
+        <div class="demo-box">
+          <div class="demo-row">
+            <label>城市：</label>
+            <select style="width: 150px;">
+              <option value="">请选择城市</option>
+              <option value="beijing">北京</option>
+              <option value="shanghai">上海</option>
+              <option value="guangzhou">广州</option>
+              <option value="shenzhen">深圳</option>
+            </select>
+          </div>
+          <div class="demo-row">
+            <label>年份：</label>
+            <select class="small" style="width: 100px;">
+              <option>2024</option>
+              <option>2023</option>
+              <option>2022</option>
+            </select>
+            <label style="margin-left: 20px;">月份：</label>
+            <select class="small" style="width: 80px;">
+              <option>1月</option>
+              <option>2月</option>
+              <option>3月</option>
+            </select>
+          </div>
+        </div>
+
+        <h3>使用示例</h3>
+        <pre><code>&lt;div class="form-group"&gt;
+  &lt;label&gt;城市&lt;/label&gt;
+  &lt;select&gt;
+    &lt;option value=""&gt;请选择城市&lt;/option&gt;
+    &lt;option value="beijing"&gt;北京&lt;/option&gt;
+    &lt;option value="shanghai"&gt;上海&lt;/option&gt;
+  &lt;/select&gt;
+&lt;/div&gt;</code></pre>
+      </section>
+
+      <section class="doc-section">
+        <h2>optgroup 分组</h2>
+        <div class="demo-box">
+          <div class="demo-row">
+            <select style="width: 200px;">
+              <optgroup label="前端开发">
+                <option>HTML/CSS</option>
+                <option>JavaScript</option>
+                <option>Vue.js</option>
+                <option>React</option>
+              </optgroup>
+              <optgroup label="后端开发">
+                <option>Node.js</option>
+                <option>Python</option>
+                <option>Java</option>
+                <option>Go</option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+
+        <h3>使用示例</h3>
+        <pre><code>&lt;select&gt;
+  &lt;optgroup label="前端开发"&gt;
+    &lt;option&gt;HTML/CSS&lt;/option&gt;
+    &lt;option&gt;JavaScript&lt;/option&gt;
+  &lt;/optgroup&gt;
+  &lt;optgroup label="后端开发"&gt;
+    &lt;option&gt;Node.js&lt;/option&gt;
+    &lt;option&gt;Python&lt;/option&gt;
+  &lt;/optgroup&gt;
+&lt;/select&gt;</code></pre>
+      </section>
+
+      <footer class="doc-footer">
+        <p>通用表单样式系统 · 支持浅色/深色双主题</p>
+      </footer>
+    </div>
+  </body>
+
+</html>

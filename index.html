@@ -7,1060 +7,254 @@
     <title>通用表单样式文档</title>
     <link rel="stylesheet" href="./css/style.css">
     <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
       body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        background-color: var(--app-bg-body);
+        color: var(--form-text);
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      /* 布局容器 */
+      .app-container {
+        display: flex;
+        height: 100vh;
+      }
+
+      /* 侧边栏 */
+      .sidebar {
+        width: 260px;
+        background-color: var(--app-bg-surface);
+        border-right: 1px solid var(--form-border);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      /* Logo 区域 */
+      .sidebar-header {
         padding: 20px;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-
-      /* 文档样式 */
-      .doc-header {
-        margin-bottom: 40px;
-        padding-bottom: 20px;
-        border-bottom: 2px solid var(--form-border);
-      }
-
-      .doc-header h1 {
-        font-size: 32px;
-        margin-bottom: 10px;
-        color: var(--form-text);
-      }
-
-      .doc-header p {
-        color: var(--form-placeholder);
-        font-size: 16px;
-      }
-
-      .doc-section {
-        margin-bottom: 40px;
-      }
-
-      .doc-section h2 {
-        font-size: 24px;
-        margin-bottom: 10px;
-        color: var(--form-text);
-        padding-bottom: 10px;
         border-bottom: 1px solid var(--form-border);
       }
 
-      .doc-section h3 {
-        font-size: 18px;
-        margin: 25px 0 10px 0;
-        color: var(--form-text);
-      }
-
-      .doc-section p {
-        color: var(--form-text);
-        line-height: 1.6;
-        margin-bottom: 15px;
-      }
-
-      .doc-section ul {
-        margin-left: 20px;
-        color: var(--form-text);
-        line-height: 1.8;
-      }
-
-      .doc-section code {
-        background-color: var(--form-bg-disabled);
-        padding: 2px 6px;
-        border-radius: 3px;
-        font-family: 'Courier New', monospace;
-        font-size: 14px;
-        color: var(--form-border-focus);
-      }
-
-      .doc-section pre {
-        background-color: var(--form-bg-disabled);
-        padding: 15px;
-        border-radius: 6px;
-        overflow-x: auto;
-        margin: 15px 0;
-      }
-
-      .doc-section pre code {
-        background: none;
-        padding: 0;
-      }
-
-      /* 演示区域 */
-      .demo-box {
-        background-color: var(--app-bg-surface);
-        border: 1px solid var(--form-border);
-        border-radius: 8px;
-        padding: 20px;
-        margin: 20px 0;
-      }
-
-      .demo-row {
-        margin-bottom: 15px;
+      .logo {
         display: flex;
-        gap: 15px;
         align-items: center;
-        flex-wrap: wrap;
-      }
-
-      .demo-row:last-child {
-        margin-bottom: 0;
-      }
-
-      /* 类名表格 */
-      .class-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 15px 0;
-      }
-
-      .class-table th,
-      .class-table td {
-        border: 1px solid var(--form-border);
-        padding: 12px;
-        text-align: left;
-      }
-
-      .class-table th {
-        background-color: var(--form-bg-disabled);
+        gap: 10px;
+        font-size: 18px;
         font-weight: 600;
         color: var(--form-text);
       }
 
-      .class-table td {
-        color: var(--form-text);
+      .logo-icon {
+        font-size: 24px;
       }
 
-      .class-table code {
-        font-size: 13px;
+      .logo-subtitle {
+        font-size: 12px;
+        color: var(--form-placeholder);
+        font-weight: 400;
+        margin-top: 4px;
       }
 
       /* 主题切换 */
-      .theme-toggle {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 1000;
+      .theme-toggle-bar {
+        padding: 15px 20px;
+        border-bottom: 1px solid var(--form-border);
+      }
+
+      .theme-toggle-btn {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 8px 16px;
+        background-color: var(--bg-primary);
+        border: 1px solid var(--form-border);
+        border-radius: 6px;
+        color: var(--form-text);
+        cursor: pointer;
+        transition: all 0.3s;
+        font-size: 14px;
+      }
+
+      .theme-toggle-btn:hover {
+        border-color: var(--form-border-hover);
+      }
+
+      /* 导航菜单 */
+      .nav-menu {
+        flex: 1;
+        overflow-y: auto;
+        padding: 10px 0;
+      }
+
+      .nav-section {
+        margin-bottom: 8px;
+      }
+
+      .nav-section-title {
+        padding: 8px 20px;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--form-placeholder);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .nav-item {
+        display: block;
+        padding: 10px 20px;
+        color: var(--form-text);
+        text-decoration: none;
+        font-size: 14px;
+        transition: all 0.2s;
+        border-left: 3px solid transparent;
+      }
+
+      .nav-item:hover {
+        background-color: var(--bg-disabled);
+        color: var(--form-border-focus);
+      }
+
+      .nav-item.active {
+        background-color: rgba(24, 144, 255, 0.1);
+        color: var(--form-border-focus);
+        border-left-color: var(--form-border-focus);
+      }
+
+      .nav-item .icon {
+        display: inline-block;
+        width: 20px;
+        margin-right: 8px;
+        text-align: center;
+      }
+
+      /* 主内容区 */
+      .main-content {
+        flex: 1;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .content-iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        background-color: var(--app-bg-body);
+      }
+
+      /* 滚动条样式 */
+      .nav-menu::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      .nav-menu::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      .nav-menu::-webkit-scrollbar-thumb {
+        background: var(--form-border);
+        border-radius: 3px;
+      }
+
+      .nav-menu::-webkit-scrollbar-thumb:hover {
+        background: var(--form-placeholder);
       }
     </style>
   </head>
 
   <body>
-    <!-- 主题切换按钮 -->
-    <div class="theme-toggle">
-      <button class="primary" onclick="document.documentElement.classList.toggle('theme-light'); document.documentElement.classList.toggle('theme-dark');">
-        🌓 切换主题
-      </button>
+    <div class="app-container">
+      <!-- 侧边栏 -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <div class="logo">
+            <span class="logo-icon">📝</span>
+            <div>
+              <div>通用表单样式</div>
+              <div class="logo-subtitle">轻量级双主题表单系统</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="theme-toggle-bar">
+          <button class="theme-toggle-btn" onclick="toggleTheme()">
+            <span id="theme-icon">🌙</span>
+            <span id="theme-text">深色模式</span>
+          </button>
+        </div>
+
+        <nav class="nav-menu">
+          <div class="nav-section">
+            <div class="nav-section-title">开始</div>
+            <a href="./html/intro.html" class="nav-item active" data-page="intro" target="content-frame">
+              <span class="icon">💡</span>简介与快速开始
+            </a>
+          </div>
+
+          <div class="nav-section">
+            <div class="nav-section-title">基础组件</div>
+            <a href="./html/input.html" class="nav-item" data-page="input" target="content-frame">
+              <span class="icon">📥</span>输入框 Input
+            </a>
+            <a href="./html/textarea.html" class="nav-item" data-page="textarea" target="content-frame">
+              <span class="icon">📄</span>文本域 Textarea
+            </a>
+            <a href="./html/select.html" class="nav-item" data-page="select" target="content-frame">
+              <span class="icon">📋</span>下拉框 Select
+            </a>
+            <a href="./html/button.html" class="nav-item" data-page="button" target="content-frame">
+              <span class="icon">🔘</span>按钮 Button
+            </a>
+          </div>
+
+          <div class="nav-section">
+            <div class="nav-section-title">选择组件</div>
+            <a href="./html/checkbox.html" class="nav-item" data-page="checkbox" target="content-frame">
+              <span class="icon">☑️</span>复选框 Checkbox
+            </a>
+            <a href="./html/radio.html" class="nav-item" data-page="radio" target="content-frame">
+              <span class="icon">🔘</span>单选框 Radio
+            </a>
+            <a href="./html/switch.html" class="nav-item" data-page="switch" target="content-frame">
+              <span class="icon">🔄</span>开关 Switch
+            </a>
+          </div>
+
+          <div class="nav-section">
+            <div class="nav-section-title">布局与主题</div>
+            <a href="./html/form-group.html" class="nav-item" data-page="form-group" target="content-frame">
+              <span class="icon">📦</span>表单组合 Form Group
+            </a>
+            <a href="./html/theme.html" class="nav-item" data-page="theme" target="content-frame">
+              <span class="icon">🎨</span>主题系统
+            </a>
+          </div>
+
+          <div class="nav-section">
+            <div class="nav-section-title">示例</div>
+            <a href="./html/example.html" class="nav-item" data-page="example" target="content-frame">
+              <span class="icon">📋</span>完整示例
+            </a>
+          </div>
+        </nav>
+      </aside>
+
+      <!-- 主内容区 -->
+      <main class="main-content">
+        <iframe name="content-frame" class="content-iframe" src="./html/intro.html"></iframe>
+      </main>
     </div>
 
-    <!-- 文档头部 -->
-    <header class="doc-header">
-      <h1>📝 通用表单样式文档</h1>
-      <p>一套支持浅色/深色双主题的现代表单样式系统，基于 SCSS 构建。默认样式直接作用于 HTML 标签，通过类名控制尺寸和变体。</p>
-    </header>
-
-    <!-- 设计理念 -->
-    <section class="doc-section">
-      <h2>💡 设计理念</h2>
-      <p>本样式系统采用<strong>标签优先</strong>的设计方式：</p>
-      <ul>
-        <li><strong>默认样式</strong>：直接作用于 HTML 标签（如 <code>&lt;input&gt;</code>、<code>&lt;button&gt;</code>），无需添加类名</li>
-        <li><strong>尺寸控制</strong>：通过 <code>.small</code> 和 <code>.large</code> 类名切换尺寸（默认中号）</li>
-        <li><strong>类型变体</strong>：通过 <code>.primary</code>、<code>.danger</code> 等类名切换样式变体</li>
-        <li><strong>状态修饰</strong>：通过 <code>.is-error</code>、<code>.is-success</code> 等类名表示状态</li>
-      </ul>
-    </section>
-
-    <!-- 快速开始 -->
-    <section class="doc-section">
-      <h2>🚀 快速开始</h2>
-      <p>在 HTML 文件的 <code>&lt;head&gt;</code> 中引入编译后的 CSS 文件：</p>
-      <pre><code>&lt;link rel="stylesheet" href="./css/style.css"&gt;</code></pre>
-
-      <p>在 <code>&lt;html&gt;</code> 或任意父元素上添加主题类名：</p>
-      <pre><code>&lt;!-- 浅色主题 --&gt;
-&lt;html class="theme-light"&gt;
-
-&lt;!-- 深色主题 --&gt;
-&lt;html class="theme-dark"&gt;</code></pre>
-
-      <p>使用 JavaScript 动态切换主题：</p>
-      <pre><code>// 切换到深色主题
-document.documentElement.classList.remove('theme-light');
-document.documentElement.classList.add('theme-dark');
-
-// 切换主题（toggle）
-document.documentElement.classList.toggle('theme-light');
-document.documentElement.classList.toggle('theme-dark');</code></pre>
-    </section>
-
-    <!-- 输入框 -->
-    <section class="doc-section">
-      <h2>📥 输入框 (Input)</h2>
-      <p>样式直接作用于 <code>input</code> 标签（支持 type="text", "password", "email", "number" 等）</p>
-
-      <h3>可用类名</h3>
-      <table class="class-table">
-        <thead>
-          <tr>
-            <th>类名</th>
-            <th>说明</th>
-            <th>效果</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>（无）</code></td>
-            <td>默认样式</td>
-            <td>中号尺寸，高度 32px</td>
-          </tr>
-          <tr>
-            <td><code>small</code></td>
-            <td>小尺寸</td>
-            <td>高度 24px，字体 12px</td>
-          </tr>
-          <tr>
-            <td><code>large</code></td>
-            <td>大尺寸</td>
-            <td>高度 40px，字体 16px</td>
-          </tr>
-          <tr>
-            <td><code>is-error</code></td>
-            <td>错误状态</td>
-            <td>红色边框，用于表单验证失败</td>
-          </tr>
-          <tr>
-            <td><code>is-success</code></td>
-            <td>成功状态</td>
-            <td>绿色边框，用于验证通过</td>
-          </tr>
-          <tr>
-            <td><code>is-warning</code></td>
-            <td>警告状态</td>
-            <td>黄色边框，用于警告提示</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>效果演示</h3>
-      <div class="demo-box">
-        <div class="demo-row">
-          <input type="text" placeholder="默认中号" style="width: 150px;">
-          <input type="text" class="small" placeholder="小号" style="width: 120px;">
-          <input type="text" class="large" placeholder="大号" style="width: 180px;">
-        </div>
-        <div class="demo-row">
-          <input type="password" placeholder="密码输入框" style="width: 200px;">
-          <input type="email" placeholder="邮箱输入框" style="width: 200px;">
-          <input type="number" placeholder="数字输入框" style="width: 200px;">
-        </div>
-        <div class="demo-row">
-          <input type="text" class="is-error" placeholder="错误状态" value="输入有误" style="width: 150px;">
-          <input type="text" class="is-success" placeholder="成功状态" value="验证通过" style="width: 150px;">
-          <input type="text" class="is-warning" placeholder="警告状态" value="请注意" style="width: 150px;">
-        </div>
-        <div class="demo-row">
-          <input type="text" placeholder="禁用状态" disabled style="width: 200px;">
-          <input type="text" placeholder="只读状态" readonly value="不可编辑" style="width: 200px;">
-        </div>
-      </div>
-
-      <h3>使用示例</h3>
-      <pre><code>&lt;!-- 默认中号输入框 --&gt;
-&lt;input type="text" placeholder="请输入..."&gt;
-
-&lt;!-- 小号输入框 --&gt;
-&lt;input type="text" class="small" placeholder="小号..."&gt;
-
-&lt;!-- 大号输入框 --&gt;
-&lt;input type="text" class="large" placeholder="大号..."&gt;
-
-&lt;!-- 错误状态 --&gt;
-&lt;input type="text" class="is-error" value="输入有误"&gt;
-
-&lt;!-- 成功状态 --&gt;
-&lt;input type="text" class="is-success" value="验证通过"&gt;
-
-&lt;!-- 禁用状态 --&gt;
-&lt;input type="text" disabled&gt;
-
-&lt;!-- 只读状态 --&gt;
-&lt;input type="text" readonly value="不可编辑"&gt;</code></pre>
-    </section>
-
-    <!-- 文本域 -->
-    <section class="doc-section">
-      <h2>📄 文本域 (Textarea)</h2>
-      <p>样式直接作用于 <code>textarea</code> 标签</p>
-
-      <h3>可用类名</h3>
-      <table class="class-table">
-        <thead>
-          <tr>
-            <th>类名</th>
-            <th>说明</th>
-            <th>效果</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>（无）</code></td>
-            <td>默认样式</td>
-            <td>最小高度 80px</td>
-          </tr>
-          <tr>
-            <td><code>small</code></td>
-            <td>小尺寸</td>
-            <td>最小高度 60px，字体 12px</td>
-          </tr>
-          <tr>
-            <td><code>large</code></td>
-            <td>大尺寸</td>
-            <td>最小高度 120px，字体 16px</td>
-          </tr>
-          <tr>
-            <td><code>is-error</code></td>
-            <td>错误状态</td>
-            <td>红色边框</td>
-          </tr>
-          <tr>
-            <td><code>is-success</code></td>
-            <td>成功状态</td>
-            <td>绿色边框</td>
-          </tr>
-          <tr>
-            <td><code>is-warning</code></td>
-            <td>警告状态</td>
-            <td>黄色边框</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>效果演示</h3>
-      <div class="demo-box">
-        <div class="demo-row">
-          <textarea placeholder="默认中号文本域..." style="width: 250px;"></textarea>
-          <textarea class="small" placeholder="小号文本域..." style="width: 200px;"></textarea>
-          <textarea class="large" placeholder="大号文本域..." style="width: 300px;"></textarea>
-        </div>
-        <div class="demo-row">
-          <textarea class="is-error" placeholder="错误状态..." style="width: 250px;"></textarea>
-          <textarea class="is-success" placeholder="成功状态..." style="width: 250px;"></textarea>
-          <textarea placeholder="禁用状态" disabled style="width: 250px;"></textarea>
-        </div>
-      </div>
-
-      <h3>使用示例</h3>
-      <pre><code>&lt;!-- 默认文本域 --&gt;
-&lt;textarea placeholder="请输入多行文本..."&gt;&lt;/textarea&gt;
-
-&lt;!-- 小号文本域 --&gt;
-&lt;textarea class="small"&gt;&lt;/textarea&gt;
-
-&lt;!-- 大号文本域 --&gt;
-&lt;textarea class="large"&gt;&lt;/textarea&gt;
-
-&lt;!-- 带状态 --&gt;
-&lt;textarea class="is-error"&gt;&lt;/textarea&gt;</code></pre>
-    </section>
-
-    <!-- 下拉框 -->
-    <section class="doc-section">
-      <h2>📋 下拉框 (Select)</h2>
-      <p>样式直接作用于 <code>select</code> 标签</p>
-
-      <h3>可用类名</h3>
-      <table class="class-table">
-        <thead>
-          <tr>
-            <th>类名</th>
-            <th>说明</th>
-            <th>效果</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>（无）</code></td>
-            <td>默认样式</td>
-            <td>高度 32px</td>
-          </tr>
-          <tr>
-            <td><code>small</code></td>
-            <td>小尺寸</td>
-            <td>高度 24px，字体 12px</td>
-          </tr>
-          <tr>
-            <td><code>large</code></td>
-            <td>大尺寸</td>
-            <td>高度 40px，字体 16px</td>
-          </tr>
-          <tr>
-            <td><code>is-error</code></td>
-            <td>错误状态</td>
-            <td>红色边框</td>
-          </tr>
-          <tr>
-            <td><code>is-success</code></td>
-            <td>成功状态</td>
-            <td>绿色边框</td>
-          </tr>
-          <tr>
-            <td><code>is-warning</code></td>
-            <td>警告状态</td>
-            <td>黄色边框</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>效果演示</h3>
-      <div class="demo-box">
-        <div class="demo-row">
-          <select style="width: 150px;">
-            <option>默认中号</option>
-            <option>选项二</option>
-            <option>选项三</option>
-          </select>
-          <select class="small" style="width: 120px;">
-            <option>小号</option>
-            <option>选项二</option>
-          </select>
-          <select class="large" style="width: 180px;">
-            <option>大号</option>
-            <option>选项二</option>
-          </select>
-        </div>
-        <div class="demo-row">
-          <select class="is-error" style="width: 150px;">
-            <option>错误状态</option>
-          </select>
-          <select class="is-success" style="width: 150px;">
-            <option>成功状态</option>
-          </select>
-          <select disabled style="width: 150px;">
-            <option>禁用状态</option>
-          </select>
-        </div>
-      </div>
-
-      <h3>使用示例</h3>
-      <pre><code>&lt;!-- 默认下拉框 --&gt;
-&lt;select&gt;
-  &lt;option&gt;选项一&lt;/option&gt;
-  &lt;option&gt;选项二&lt;/option&gt;
-&lt;/select&gt;
-
-&lt;!-- 小号下拉框 --&gt;
-&lt;select class="small"&gt;...&lt;/select&gt;
-
-&lt;!-- 大号下拉框 --&gt;
-&lt;select class="large"&gt;...&lt;/select&gt;
-
-&lt;!-- 错误状态 --&gt;
-&lt;select class="is-error"&gt;...&lt;/select&gt;</code></pre>
-    </section>
-
-    <!-- 按钮 -->
-    <section class="doc-section">
-      <h2>🔘 按钮 (Button)</h2>
-      <p>样式直接作用于 <code>button</code> 标签，通过类名控制类型和尺寸</p>
-
-      <h3>可用类名</h3>
-      <table class="class-table">
-        <thead>
-          <tr>
-            <th>类名</th>
-            <th>说明</th>
-            <th>效果</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>（无）</code></td>
-            <td>默认样式</td>
-            <td>高度 32px，透明边框</td>
-          </tr>
-          <tr>
-            <td><code>small</code></td>
-            <td>小尺寸</td>
-            <td>高度 24px，字体 12px</td>
-          </tr>
-          <tr>
-            <td><code>large</code></td>
-            <td>大尺寸</td>
-            <td>高度 40px，字体 16px</td>
-          </tr>
-          <tr>
-            <td><code>primary</code></td>
-            <td>主要按钮</td>
-            <td>蓝色背景，白色文字</td>
-          </tr>
-          <tr>
-            <td><code>default</code></td>
-            <td>默认按钮</td>
-            <td>白色背景，灰色边框</td>
-          </tr>
-          <tr>
-            <td><code>danger</code></td>
-            <td>危险按钮</td>
-            <td>红色背景，用于删除等危险操作</td>
-          </tr>
-          <tr>
-            <td><code>text</code></td>
-            <td>文字按钮</td>
-            <td>无边框无背景，纯文字</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>效果演示</h3>
-      <div class="demo-box">
-        <div class="demo-row">
-          <button class="primary">主要按钮</button>
-          <button class="default">默认按钮</button>
-          <button class="danger">危险按钮</button>
-          <button class="text">文字按钮</button>
-          <button class="primary" disabled>禁用按钮</button>
-        </div>
-        <div class="demo-row">
-          <button class="primary large">大号主要</button>
-          <button class="primary">中号主要</button>
-          <button class="primary small">小号主要</button>
-        </div>
-        <div class="demo-row">
-          <button class="default large">大号默认</button>
-          <button class="default">中号默认</button>
-          <button class="default small">小号默认</button>
-        </div>
-        <div class="demo-row">
-          <button class="danger large">大号危险</button>
-          <button class="danger">中号危险</button>
-          <button class="danger small">小号危险</button>
-        </div>
-      </div>
-
-      <h3>使用示例</h3>
-      <pre><code>&lt;!-- 主要按钮 --&gt;
-&lt;button class="primary"&gt;提交&lt;/button&gt;
-
-&lt;!-- 默认按钮 --&gt;
-&lt;button class="default"&gt;取消&lt;/button&gt;
-
-&lt;!-- 危险按钮 --&gt;
-&lt;button class="danger"&gt;删除&lt;/button&gt;
-
-&lt;!-- 文字按钮 --&gt;
-&lt;button class="text"&gt;查看更多&lt;/button&gt;
-
-&lt;!-- 大号按钮 --&gt;
-&lt;button class="primary large"&gt;大按钮&lt;/button&gt;
-
-&lt;!-- 小号按钮 --&gt;
-&lt;button class="primary small"&gt;小按钮&lt;/button&gt;
-
-&lt;!-- 尺寸与类型组合 --&gt;
-&lt;button class="danger large"&gt;大号危险按钮&lt;/button&gt;</code></pre>
-    </section>
-
-    <!-- 复选框 -->
-    <section class="doc-section">
-      <h2>☑️ 复选框 (Checkbox)</h2>
-      <p>样式直接作用于 <code>input[type="checkbox"]</code> 标签</p>
-
-      <h3>可用类名</h3>
-      <table class="class-table">
-        <thead>
-          <tr>
-            <th>类名</th>
-            <th>说明</th>
-            <th>效果</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>（无）</code></td>
-            <td>默认样式</td>
-            <td>尺寸 18×18px</td>
-          </tr>
-          <tr>
-            <td><code>small</code></td>
-            <td>小尺寸</td>
-            <td>尺寸 14×14px</td>
-          </tr>
-          <tr>
-            <td><code>large</code></td>
-            <td>大尺寸</td>
-            <td>尺寸 22×22px</td>
-          </tr>
-          <tr>
-            <td><code>round</code></td>
-            <td>圆形样式</td>
-            <td>圆形复选框</td>
-          </tr>
-          <tr>
-            <td><code>is-error</code></td>
-            <td>错误状态</td>
-            <td>红色边框/背景</td>
-          </tr>
-          <tr>
-            <td><code>is-success</code></td>
-            <td>成功状态</td>
-            <td>绿色边框/背景</td>
-          </tr>
-          <tr>
-            <td><code>is-warning</code></td>
-            <td>警告状态</td>
-            <td>黄色边框/背景</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>效果演示</h3>
-      <div class="demo-box">
-        <div class="demo-row">
-          <label>
-            <input type="checkbox" checked> 默认中号
-          </label>
-          <label>
-            <input type="checkbox" class="small" checked> 小号
-          </label>
-          <label>
-            <input type="checkbox" class="large" checked> 大号
-          </label>
-        </div>
-        <div class="demo-row">
-          <label>
-            <input type="checkbox" class="round" checked> 圆形
-          </label>
-          <label>
-            <input type="checkbox" disabled> 禁用未选
-          </label>
-          <label>
-            <input type="checkbox" disabled checked> 禁用已选
-          </label>
-        </div>
-        <div class="demo-row">
-          <label>
-            <input type="checkbox" class="is-error" checked> 错误状态
-          </label>
-          <label>
-            <input type="checkbox" class="is-success" checked> 成功状态
-          </label>
-          <label>
-            <input type="checkbox" class="is-warning" checked> 警告状态
-          </label>
-        </div>
-      </div>
-
-      <h3>使用示例</h3>
-      <pre><code>&lt;!-- 默认复选框 --&gt;
-&lt;label&gt;
-  &lt;input type="checkbox" checked&gt; 选项文字
-&lt;/label&gt;
-
-&lt;!-- 小号复选框 --&gt;
-&lt;input type="checkbox" class="small"&gt;
-
-&lt;!-- 大号复选框 --&gt;
-&lt;input type="checkbox" class="large"&gt;
-
-&lt;!-- 圆形复选框 --&gt;
-&lt;input type="checkbox" class="round"&gt;
-
-&lt;!-- 状态样式 --&gt;
-&lt;input type="checkbox" class="is-error"&gt;
-&lt;input type="checkbox" class="is-success"&gt;</code></pre>
-    </section>
-
-    <!-- 单选框 -->
-    <section class="doc-section">
-      <h2>🔘 单选框 (Radio)</h2>
-      <p>样式直接作用于 <code>input[type="radio"]</code> 标签</p>
-
-      <h3>可用类名</h3>
-      <table class="class-table">
-        <thead>
-          <tr>
-            <th>类名</th>
-            <th>说明</th>
-            <th>效果</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>（无）</code></td>
-            <td>默认样式</td>
-            <td>尺寸 16×16px</td>
-          </tr>
-          <tr>
-            <td><code>small</code></td>
-            <td>小尺寸</td>
-            <td>尺寸 12×12px</td>
-          </tr>
-          <tr>
-            <td><code>large</code></td>
-            <td>大尺寸</td>
-            <td>尺寸 20×20px</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>效果演示</h3>
-      <div class="demo-box">
-        <div class="demo-row">
-          <label>
-            <input type="radio" name="radio-size" checked> 默认中号
-          </label>
-          <label>
-            <input type="radio" name="radio-size" class="small"> 小号
-          </label>
-          <label>
-            <input type="radio" name="radio-size" class="large"> 大号
-          </label>
-        </div>
-        <div class="demo-row">
-          <label>
-            <input type="radio" name="radio-demo2" checked> 选项一
-          </label>
-          <label>
-            <input type="radio" name="radio-demo2"> 选项二
-          </label>
-          <label>
-            <input type="radio" name="radio-demo2" disabled> 禁用
-          </label>
-        </div>
-      </div>
-
-      <h3>使用示例</h3>
-      <pre><code>&lt;!-- 单选框组 --&gt;
-&lt;label&gt;
-  &lt;input type="radio" name="gender" value="male" checked&gt; 男
-&lt;/label&gt;
-&lt;label&gt;
-  &lt;input type="radio" name="gender" value="female"&gt; 女
-&lt;/label&gt;
-
-&lt;!-- 小号单选框 --&gt;
-&lt;input type="radio" name="size" class="small"&gt;
-
-&lt;!-- 大号单选框 --&gt;
-&lt;input type="radio" name="size" class="large"&gt;</code></pre>
-    </section>
-
-    <!-- 开关 -->
-    <section class="doc-section">
-      <h2>🔄 开关 (Switch)</h2>
-      <p>使用 <code>.switch</code> 类包裹 <code>input[type="checkbox"]</code> 和 <code>.slider</code> 元素</p>
-
-      <h3>可用类名</h3>
-      <table class="class-table">
-        <thead>
-          <tr>
-            <th>类名</th>
-            <th>说明</th>
-            <th>效果</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>switch</code></td>
-            <td>开关容器（必须）</td>
-            <td>默认尺寸 44×22px</td>
-          </tr>
-          <tr>
-            <td><code>small</code></td>
-            <td>小尺寸开关</td>
-            <td>尺寸 32×16px</td>
-          </tr>
-          <tr>
-            <td><code>large</code></td>
-            <td>大尺寸开关</td>
-            <td>尺寸 56×28px</td>
-          </tr>
-          <tr>
-            <td><code>slider</code></td>
-            <td>滑块元素（必须）</td>
-            <td>开关的滑动部分</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>效果演示</h3>
-      <div class="demo-box">
-        <div class="demo-row">
-          <label class="switch">
-            <input type="checkbox">
-            <span class="slider"></span>
-          </label>
-          <label class="switch">
-            <input type="checkbox" checked>
-            <span class="slider"></span>
-          </label>
-          <label class="switch">
-            <input type="checkbox" disabled>
-            <span class="slider"></span>
-          </label>
-        </div>
-        <div class="demo-row">
-          <label class="switch small">
-            <input type="checkbox" checked>
-            <span class="slider"></span>
-          </label>
-          <label class="switch">
-            <input type="checkbox" checked>
-            <span class="slider"></span>
-          </label>
-          <label class="switch large">
-            <input type="checkbox" checked>
-            <span class="slider"></span>
-          </label>
-        </div>
-      </div>
-
-      <h3>使用示例</h3>
-      <pre><code>&lt;!-- 默认开关 --&gt;
-&lt;label class="switch"&gt;
-  &lt;input type="checkbox"&gt;
-  &lt;span class="slider"&gt;&lt;/span&gt;
-&lt;/label&gt;
-
-&lt;!-- 默认开启 --&gt;
-&lt;label class="switch"&gt;
-  &lt;input type="checkbox" checked&gt;
-  &lt;span class="slider"&gt;&lt;/span&gt;
-&lt;/label&gt;
-
-&lt;!-- 小号开关 --&gt;
-&lt;label class="switch small"&gt;
-  &lt;input type="checkbox"&gt;
-  &lt;span class="slider"&gt;&lt;/span&gt;
-&lt;/label&gt;
-
-&lt;!-- 大号开关 --&gt;
-&lt;label class="switch large"&gt;
-  &lt;input type="checkbox"&gt;
-  &lt;span class="slider"&gt;&lt;/span&gt;
-&lt;/label&gt;</code></pre>
-    </section>
-
-    <!-- 表单组合 -->
-    <section class="doc-section">
-      <h2>📦 表单组合 (Form Group)</h2>
-      <p>用于组织表单元素的组合样式</p>
-
-      <h3>可用类名</h3>
-      <table class="class-table">
-        <thead>
-          <tr>
-            <th>类名</th>
-            <th>说明</th>
-            <th>效果</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>form-group</code></td>
-            <td>表单组容器</td>
-            <td>包含标签、输入框和提示信息</td>
-          </tr>
-          <tr>
-            <td><code>is-required</code></td>
-            <td>必填标记</td>
-            <td>在 label 前添加红色星号</td>
-          </tr>
-          <tr>
-            <td><code>form-hint</code></td>
-            <td>提示文字</td>
-            <td>灰色小字提示</td>
-          </tr>
-          <tr>
-            <td><code>form-error-msg</code></td>
-            <td>错误信息</td>
-            <td>红色错误提示文字</td>
-          </tr>
-          <tr>
-            <td><code>form-inline</code></td>
-            <td>行内布局</td>
-            <td>让表单组横向排列</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>效果演示</h3>
-      <div class="demo-box">
-        <div class="form-group" style="max-width: 300px; margin-bottom: 20px;">
-          <label class="is-required">用户名</label>
-          <input type="text" placeholder="请输入用户名">
-          <div class="form-hint">用户名长度为 3-20 个字符</div>
-        </div>
-        <div class="form-group" style="max-width: 300px;">
-          <label class="is-required">邮箱</label>
-          <input type="email" class="is-error" placeholder="请输入邮箱" value="invalid-email">
-          <div class="form-error-msg">邮箱格式不正确</div>
-        </div>
-      </div>
-
-      <h3>使用示例</h3>
-      <pre><code>&lt;!-- 基础表单组 --&gt;
-&lt;div class="form-group"&gt;
-  &lt;label&gt;用户名&lt;/label&gt;
-  &lt;input type="text" placeholder="请输入用户名"&gt;
-  &lt;div class="form-hint"&gt;用户名长度为 3-20 个字符&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;!-- 必填项 + 错误提示 --&gt;
-&lt;div class="form-group"&gt;
-  &lt;label class="is-required"&gt;邮箱&lt;/label&gt;
-  &lt;input type="email" class="is-error" placeholder="请输入邮箱"&gt;
-  &lt;div class="form-error-msg"&gt;邮箱格式不正确&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;!-- 行内布局 --&gt;
-&lt;div class="form-inline"&gt;
-  &lt;div class="form-group"&gt;
-    &lt;label&gt;姓名&lt;/label&gt;
-    &lt;input type="text"&gt;
-  &lt;/div&gt;
-  &lt;div class="form-group"&gt;
-    &lt;label&gt;电话&lt;/label&gt;
-    &lt;input type="text"&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-    </section>
-
-    <!-- 主题系统 -->
-    <section class="doc-section">
-      <h2>🎨 主题系统</h2>
-      <p>本样式系统内置浅色和深色两套主题，通过 CSS 变量实现无缝切换。</p>
-
-      <h3>主题类名</h3>
-      <table class="class-table">
-        <thead>
-          <tr>
-            <th>类名</th>
-            <th>说明</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>theme-light</code></td>
-            <td>浅色主题（默认）</td>
-          </tr>
-          <tr>
-            <td><code>theme-dark</code></td>
-            <td>深色主题</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>主题变量</h3>
-      <p>主题通过 CSS 变量定义，可在自定义样式中覆盖：</p>
-      <pre><code>/* 表单颜色变量 */
---form-border: #d9d9d9;        /* 边框颜色 */
---form-border-hover: #40a9ff;  /* 悬停边框 */
---form-border-focus: #1890ff;  /* 聚焦边框 */
---form-bg: #ffffff;            /* 背景色 */
---form-bg-disabled: #f5f5f5;   /* 禁用背景 */
---form-text: #333333;          /* 文字颜色 */
---form-text-disabled: #bfbfbf; /* 禁用文字 */
---form-placeholder: #bfbfbf;   /* 占位符颜色 */
---form-error: #ff4d4f;         /* 错误颜色 */
---form-success: #52c41a;       /* 成功颜色 */
---form-warning: #faad14;       /* 警告颜色 */
-
-/* 按钮颜色变量 */
---btn-primary-bg: #1890ff;     /* 主按钮背景 */
---btn-primary-bg-hover: #40a9ff; /* 主按钮悬停 */
---btn-danger-bg: #ff4d4f;      /* 危险按钮背景 */
---btn-danger-bg-hover: #ff7875; /* 危险按钮悬停 */</code></pre>
-    </section>
-
-    <!-- 文件结构 -->
-    <section class="doc-section">
-      <h2>📁 文件结构</h2>
-      <pre><code>通用样式/
-├── css/
-│   └── style.css          # 编译后的样式文件（引入此文件）
-├── scss/
-│   ├── style.scss         # SCSS 入口文件
-│   ├── theme.scss         # 主题变量定义
-│   ├── form.scss          # 表单组件样式
-│   └── checkbox.scss      # 复选框样式
-└── index.html             # 本文档</code></pre>
-    </section>
-
-    <!-- 完整示例 -->
-    <section class="doc-section">
-      <h2>📋 完整示例</h2>
-      <p>一个包含所有表单元素的完整示例：</p>
-      <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="zh-CN" class="theme-light"&gt;
-&lt;head&gt;
-  &lt;meta charset="UTF-8"&gt;
-  &lt;title&gt;表单示例&lt;/title&gt;
-  &lt;link rel="stylesheet" href="./css/style.css"&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;form&gt;
-    &lt;div class="form-group"&gt;
-      &lt;label class="is-required"&gt;用户名&lt;/label&gt;
-      &lt;input type="text" placeholder="请输入用户名"&gt;
-    &lt;/div&gt;
-
-    &lt;div class="form-group"&gt;
-      &lt;label&gt;邮箱&lt;/label&gt;
-      &lt;input type="email" placeholder="请输入邮箱"&gt;
-    &lt;/div&gt;
-
-    &lt;div class="form-group"&gt;
-      &lt;label&gt;性别&lt;/label&gt;
-      &lt;label&gt;
-        &lt;input type="radio" name="gender" checked&gt; 男
-      &lt;/label&gt;
-      &lt;label&gt;
-        &lt;input type="radio" name="gender"&gt; 女
-      &lt;/label&gt;
-    &lt;/div&gt;
-
-    &lt;div class="form-group"&gt;
-      &lt;label&gt;爱好&lt;/label&gt;
-      &lt;label&gt;
-        &lt;input type="checkbox"&gt; 阅读
-      &lt;/label&gt;
-      &lt;label&gt;
-        &lt;input type="checkbox"&gt; 运动
-      &lt;/label&gt;
-    &lt;/div&gt;
-
-    &lt;div class="form-group"&gt;
-      &lt;label&gt;城市&lt;/label&gt;
-      &lt;select&gt;
-        &lt;option&gt;北京&lt;/option&gt;
-        &lt;option&gt;上海&lt;/option&gt;
-        &lt;option&gt;广州&lt;/option&gt;
-      &lt;/select&gt;
-    &lt;/div&gt;
-
-    &lt;div class="form-group"&gt;
-      &lt;label&gt;简介&lt;/label&gt;
-      &lt;textarea placeholder="请输入简介..."&gt;&lt;/textarea&gt;
-    &lt;/div&gt;
-
-    &lt;div class="form-group"&gt;
-      &lt;label class="switch"&gt;
-        &lt;input type="checkbox"&gt;
-        &lt;span class="slider"&gt;&lt;/span&gt;
-      &lt;/label&gt;
-      接收通知
-    &lt;/div&gt;
-
-    &lt;button type="submit" class="primary"&gt;提交&lt;/button&gt;
-    &lt;button type="button" class="default"&gt;取消&lt;/button&gt;
-  &lt;/form&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-    </section>
-
-    <!-- 页脚 -->
-    <footer style="margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--form-border); text-align: center; color: var(--form-placeholder);">
-      <p>通用表单样式系统 · 支持浅色/深色双主题 · 标签优先设计</p>
-    </footer>
+    <script src="./js/main.js"></script>
   </body>
 
 </html>

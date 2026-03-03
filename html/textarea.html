@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="theme-dark">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文本域 Textarea</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="./doc-styles.css">
+  </head>
+
+  <body>
+    <div class="doc-container">
+      <header class="doc-header">
+        <h1>📄 文本域 (Textarea)</h1>
+        <p>样式直接作用于 textarea 标签，用于多行文本输入。</p>
+      </header>
+
+      <section class="doc-section">
+        <h2>可用类名</h2>
+        <table class="class-table">
+          <thead>
+            <tr>
+              <th>类名</th>
+              <th>说明</th>
+              <th>效果</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>（无）</code></td>
+              <td>默认样式</td>
+              <td>最小高度 80px，字体 14px</td>
+            </tr>
+            <tr>
+              <td><code>.small</code></td>
+              <td>小尺寸</td>
+              <td>最小高度 60px，字体 12px</td>
+            </tr>
+            <tr>
+              <td><code>.large</code></td>
+              <td>大尺寸</td>
+              <td>最小高度 120px，字体 16px</td>
+            </tr>
+            <tr>
+              <td><code>.is-error</code></td>
+              <td>错误状态</td>
+              <td>红色边框</td>
+            </tr>
+            <tr>
+              <td><code>.is-success</code></td>
+              <td>成功状态</td>
+              <td>绿色边框</td>
+            </tr>
+            <tr>
+              <td><code>.is-warning</code></td>
+              <td>警告状态</td>
+              <td>黄色边框</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="doc-section">
+        <h2>尺寸演示</h2>
+        <div class="demo-box">
+          <div class="demo-row">
+            <textarea placeholder="默认中号文本域...&#10;最小高度 80px" style="width: 250px; resize: vertical;"></textarea>
+            <textarea class="small" placeholder="小号文本域...&#10;最小高度 60px" style="width: 220px; resize: vertical;"></textarea>
+            <textarea class="large" placeholder="大号文本域...&#10;最小高度 120px" style="width: 300px; resize: vertical;"></textarea>
+          </div>
+        </div>
+
+        <h3>使用示例</h3>
+        <pre><code>&lt;!-- 默认中号文本域 --&gt;
+&lt;textarea placeholder="请输入多行文本..."&gt;&lt;/textarea&gt;
+
+&lt;!-- 小号文本域 --&gt;
+&lt;textarea class="small"&gt;&lt;/textarea&gt;
+
+&lt;!-- 大号文本域 --&gt;
+&lt;textarea class="large"&gt;&lt;/textarea&gt;</code></pre>
+      </section>
+
+      <section class="doc-section">
+        <h2>状态演示</h2>
+        <div class="demo-box">
+          <div class="demo-row">
+            <textarea class="is-error" placeholder="错误状态..." style="width: 250px; resize: vertical;"></textarea>
+            <textarea class="is-success" placeholder="成功状态..." style="width: 250px; resize: vertical;"></textarea>
+            <textarea class="is-warning" placeholder="警告状态..." style="width: 250px; resize: vertical;"></textarea>
+          </div>
+          <div class="demo-row">
+            <textarea placeholder="禁用状态" disabled style="width: 250px; resize: vertical;">禁用状态的文本域</textarea>
+            <textarea placeholder="正常状态" style="width: 250px; resize: vertical;">正常状态的文本域</textarea>
+          </div>
+        </div>
+
+        <h3>使用示例</h3>
+        <pre><code>&lt;!-- 错误状态 --&gt;
+&lt;textarea class="is-error"&gt;&lt;/textarea&gt;
+
+&lt;!-- 成功状态 --&gt;
+&lt;textarea class="is-success"&gt;&lt;/textarea&gt;
+
+&lt;!-- 警告状态 --&gt;
+&lt;textarea class="is-warning"&gt;&lt;/textarea&gt;
+
+&lt;!-- 禁用状态 --&gt;
+&lt;textarea disabled&gt;禁用内容&lt;/textarea&gt;</code></pre>
+      </section>
+
+      <section class="doc-section">
+        <h2>实际应用场景</h2>
+        <div class="demo-box">
+          <div class="demo-row" style="flex-direction: column; align-items: stretch;">
+            <label style="margin-bottom: 8px; font-weight: 500;">个人简介</label>
+            <textarea placeholder="请输入您的个人简介..." style="resize: vertical;"></textarea>
+            <div style="margin-top: 8px; font-size: 12px; color: var(--form-placeholder);">已输入 0/200 字</div>
+          </div>
+        </div>
+
+        <h3>使用示例</h3>
+        <pre><code>&lt;div class="form-group"&gt;
+  &lt;label&gt;个人简介&lt;/label&gt;
+  &lt;textarea placeholder="请输入您的个人简介..."&gt;&lt;/textarea&gt;
+  &lt;div class="form-hint"&gt;已输入 0/200 字&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </section>
+
+      <section class="doc-section">
+        <h2>与输入框对比</h2>
+        <table class="class-table">
+          <thead>
+            <tr>
+              <th>特性</th>
+              <th>Input</th>
+              <th>Textarea</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>适用场景</td>
+              <td>单行文本</td>
+              <td>多行文本</td>
+            </tr>
+            <tr>
+              <td>默认高度</td>
+              <td>32px</td>
+              <td>80px（最小）</td>
+            </tr>
+            <tr>
+              <td>可调整大小</td>
+              <td>不可调整</td>
+              <td>可通过 resize 属性调整</td>
+            </tr>
+            <tr>
+              <td>支持的类名</td>
+              <td>.small, .large, .is-error, .is-success, .is-warning</td>
+              <td>与 Input 相同</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <footer class="doc-footer">
+        <p>通用表单样式系统 · 支持浅色/深色双主题</p>
+      </footer>
+    </div>
+  </body>
+
+</html>

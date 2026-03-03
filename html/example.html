@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="theme-dark">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>完整示例</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="./doc-styles.css">
+    <style>
+      .example-form {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 30px;
+        background-color: var(--app-bg-surface);
+        border-radius: 12px;
+        border: 1px solid var(--form-border);
+      }
+
+      .example-form h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: var(--form-text);
+      }
+
+      .form-actions {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid var(--form-border);
+      }
+
+      .code-preview {
+        margin-top: 40px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="doc-container">
+      <header class="doc-header">
+        <h1>📋 完整示例</h1>
+        <p>一个包含所有表单元素的完整注册表单示例。</p>
+      </header>
+
+      <section class="doc-section">
+        <h2>效果预览</h2>
+        <div class="example-form">
+          <h2>用户注册</h2>
+
+          <div class="form-group" style="margin-bottom: 20px;">
+            <label class="is-required">用户名</label>
+            <input type="text" placeholder="请输入用户名">
+            <div class="form-hint">3-20 个字符，支持字母、数字和下划线</div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 20px;">
+            <label class="is-required">邮箱</label>
+            <input type="email" placeholder="请输入邮箱">
+          </div>
+
+          <div class="form-group" style="margin-bottom: 20px;">
+            <label class="is-required">密码</label>
+            <input type="password" placeholder="请输入密码">
+            <div class="form-hint">至少 6 位字符</div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 20px;">
+            <label class="is-required">确认密码</label>
+            <input type="password" class="is-error" placeholder="请再次输入密码" value="123">
+            <div class="form-error-msg">两次输入的密码不一致</div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 20px;">
+            <label class="is-required">性别</label>
+            <div style="display: flex; gap: 20px; margin-top: 8px;">
+              <label><input type="radio" name="gender" value="male" checked> 男</label>
+              <label><input type="radio" name="gender" value="female"> 女</label>
+              <label><input type="radio" name="gender" value="other"> 其他</label>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 20px;">
+            <label>城市</label>
+            <select style="margin-top: 8px;">
+              <option value="">请选择城市</option>
+              <option value="beijing">北京</option>
+              <option value="shanghai">上海</option>
+              <option value="guangzhou">广州</option>
+              <option value="shenzhen">深圳</option>
+            </select>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 20px;">
+            <label>兴趣爱好</label>
+            <div style="display: flex; gap: 16px; margin-top: 8px; flex-wrap: wrap;">
+              <label><input type="checkbox"> 阅读</label>
+              <label><input type="checkbox" checked> 运动</label>
+              <label><input type="checkbox"> 音乐</label>
+              <label><input type="checkbox"> 旅游</label>
+              <label><input type="checkbox"> 摄影</label>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 20px;">
+            <label>个人简介</label>
+            <textarea placeholder="请输入个人简介..." style="margin-top: 8px;"></textarea>
+            <div class="form-hint">选填，最多 200 字</div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 20px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider"></span>
+              </label>
+              <span>接收邮件通知</span>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 20px;">
+            <label>
+              <input type="checkbox"> 我已阅读并同意 <a href="#" style="color: var(--form-border-focus);">用户协议</a>
+            </label>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="primary large">注册</button>
+            <button type="reset" class="default large">重置</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="doc-section code-preview">
+        <h2>源代码</h2>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="zh-CN" class="theme-light"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;用户注册&lt;/title&gt;
+  &lt;link rel="stylesheet" href="./css/style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;form style="max-width: 600px; margin: 0 auto; padding: 30px;"&gt;
+    &lt;h2 style="text-align: center;"&gt;用户注册&lt;/h2&gt;
+
+    &lt;div class="form-group"&gt;
+      &lt;label class="is-required"&gt;用户名&lt;/label&gt;
+      &lt;input type="text" placeholder="请输入用户名"&gt;
+      &lt;div class="form-hint"&gt;3-20 个字符&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="form-group"&gt;
+      &lt;label class="is-required"&gt;邮箱&lt;/label&gt;
+      &lt;input type="email" placeholder="请输入邮箱"&gt;
+    &lt;/div&gt;
+
+    &lt;div class="form-group"&gt;
+      &lt;label class="is-required"&gt;密码&lt;/label&gt;
+      &lt;input type="password" placeholder="请输入密码"&gt;
+    &lt;/div&gt;
+
+    &lt;div class="form-group"&gt;
+      &lt;label class="is-required"&gt;性别&lt;/label&gt;
+      &lt;label&gt;&lt;input type="radio" name="gender" checked&gt; 男&lt;/label&gt;
+      &lt;label&gt;&lt;input type="radio" name="gender"&gt; 女&lt;/label&gt;
+    &lt;/div&gt;
+
+    &lt;div class="form-group"&gt;
+      &lt;label&gt;城市&lt;/label&gt;
+      &lt;select&gt;
+        &lt;option value=""&gt;请选择城市&lt;/option&gt;
+        &lt;option&gt;北京&lt;/option&gt;
+        &lt;option&gt;上海&lt;/option&gt;
+      &lt;/select&gt;
+    &lt;/div&gt;
+
+    &lt;div class="form-group"&gt;
+      &lt;label&gt;兴趣爱好&lt;/label&gt;
+      &lt;label&gt;&lt;input type="checkbox"&gt; 阅读&lt;/label&gt;
+      &lt;label&gt;&lt;input type="checkbox"&gt; 运动&lt;/label&gt;
+    &lt;/div&gt;
+
+    &lt;div class="form-group"&gt;
+      &lt;label&gt;个人简介&lt;/label&gt;
+      &lt;textarea placeholder="请输入..."&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+
+    &lt;div class="form-group"&gt;
+      &lt;label class="switch"&gt;
+        &lt;input type="checkbox" checked&gt;
+        &lt;span class="slider"&gt;&lt;/span&gt;
+      &lt;/label&gt;
+      接收邮件通知
+    &lt;/div&gt;
+
+    &lt;div class="form-actions"&gt;
+      &lt;button type="submit" class="primary"&gt;注册&lt;/button&gt;
+      &lt;button type="reset" class="default"&gt;重置&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </section>
+
+      <section class="doc-section">
+        <h2>使用说明</h2>
+        <ol>
+          <li>将上述代码保存为 HTML 文件</li>
+          <li>确保 <code>css/style.css</code> 文件存在（运行 <code>pnpm run build:css</code> 编译）</li>
+          <li>在浏览器中打开 HTML 文件即可看到效果</li>
+          <li>可以通过修改 <code>&lt;html&gt;</code> 的 class 切换主题（<code>theme-light</code> 或 <code>theme-dark</code>）</li>
+        </ol>
+
+        <div class="tip-box">
+          <div class="tip-box-title">💡 提示</div>
+          <p>这个示例展示了如何组合使用各种表单组件。实际项目中，你可以根据需要选择使用部分组件，所有组件都是独立的，没有强制依赖关系。</p>
+        </div>
+      </section>
+
+      <footer class="doc-footer">
+        <p>通用表单样式系统 · 支持浅色/深色双主题</p>
+      </footer>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="theme-dark">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>按钮 Button</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="./doc-styles.css">
+  </head>
+
+  <body>
+    <div class="doc-container">
+      <header class="doc-header">
+        <h1>🔘 按钮 (Button)</h1>
+        <p>样式直接作用于 button 标签，通过类名控制类型和尺寸。</p>
+      </header>
+
+      <section class="doc-section">
+        <h2>可用类名</h2>
+        <table class="class-table">
+          <thead>
+            <tr>
+              <th>类名</th>
+              <th>说明</th>
+              <th>效果</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>（无）</code></td>
+              <td>默认样式</td>
+              <td>高度 32px，透明背景</td>
+            </tr>
+            <tr>
+              <td><code>.small</code></td>
+              <td>小尺寸</td>
+              <td>高度 24px，字体 12px</td>
+            </tr>
+            <tr>
+              <td><code>.large</code></td>
+              <td>大尺寸</td>
+              <td>高度 40px，字体 16px</td>
+            </tr>
+            <tr>
+              <td><code>.primary</code></td>
+              <td>主要按钮</td>
+              <td>蓝色背景，白色文字</td>
+            </tr>
+            <tr>
+              <td><code>.default</code></td>
+              <td>默认按钮</td>
+              <td>白色背景，灰色边框</td>
+            </tr>
+            <tr>
+              <td><code>.danger</code></td>
+              <td>危险按钮</td>
+              <td>红色背景，用于删除等危险操作</td>
+            </tr>
+            <tr>
+              <td><code>.text</code></td>
+              <td>文字按钮</td>
+              <td>无边框无背景，纯文字</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="doc-section">
+        <h2>按钮类型</h2>
+        <div class="demo-box">
+          <div class="demo-row">
+            <button class="primary">主要按钮</button>
+            <button class="default">默认按钮</button>
+            <button class="danger">危险按钮</button>
+            <button class="text">文字按钮</button>
+          </div>
+          <div class="demo-row">
+            <button class="primary" disabled>禁用主要</button>
+            <button class="default" disabled>禁用默认</button>
+            <button class="danger" disabled>禁用危险</button>
+            <button class="text" disabled>禁用文字</button>
+          </div>
+        </div>
+
+        <h3>使用示例</h3>
+        <pre><code>&lt;!-- 主要按钮 --&gt;
+&lt;button class="primary"&gt;提交&lt;/button&gt;
+
+&lt;!-- 默认按钮 --&gt;
+&lt;button class="default"&gt;取消&lt;/button&gt;
+
+&lt;!-- 危险按钮 --&gt;
+&lt;button class="danger"&gt;删除&lt;/button&gt;
+
+&lt;!-- 文字按钮 --&gt;
+&lt;button class="text"&gt;查看更多&lt;/button&gt;</code></pre>
+      </section>
+
+      <section class="doc-section">
+        <h2>尺寸演示</h2>
+        <div class="demo-box">
+          <div class="demo-row">
+            <button class="primary large">大号主要</button>
+            <button class="primary">中号主要</button>
+            <button class="primary small">小号主要</button>
+          </div>
+          <div class="demo-row">
+            <button class="default large">大号默认</button>
+            <button class="default">中号默认</button>
+            <button class="default small">小号默认</button>
+          </div>
+          <div class="demo-row">
+            <button class="danger large">大号危险</button>
+            <button class="danger">中号危险</button>
+            <button class="danger small">小号危险</button>
+          </div>
+        </div>
+
+        <h3>使用示例</h3>
+        <pre><code>&lt;!-- 大号按钮 --&gt;
+&lt;button class="primary large"&gt;大按钮&lt;/button&gt;
+
+&lt;!-- 中号按钮（默认） --&gt;
+&lt;button class="primary"&gt;中按钮&lt;/button&gt;
+
+&lt;!-- 小号按钮 --&gt;
+&lt;button class="primary small"&gt;小按钮&lt;/button&gt;</code></pre>
+      </section>
+
+      <section class="doc-section">
+        <h2>组合使用</h2>
+        <div class="demo-box">
+          <div class="demo-row">
+            <button class="primary large">确认提交</button>
+            <button class="default large">取消</button>
+          </div>
+          <div class="demo-row">
+            <button class="primary">保存</button>
+            <button class="default">重置</button>
+            <button class="danger">删除</button>
+          </div>
+          <div class="demo-row">
+            <button class="primary small">+ 新建</button>
+            <button class="default small">导入</button>
+            <button class="default small">导出</button>
+            <button class="text small">查看更多 →</button>
+          </div>
+        </div>
+
+        <h3>使用示例</h3>
+        <pre><code>&lt;!-- 表单操作 --&gt;
+&lt;button class="primary"&gt;保存&lt;/button&gt;
+&lt;button class="default"&gt;重置&lt;/button&gt;
+&lt;button class="danger"&gt;删除&lt;/button&gt;
+
+&lt;!-- 工具栏 --&gt;
+&lt;button class="primary small"&gt;+ 新建&lt;/button&gt;
+&lt;button class="default small"&gt;导入&lt;/button&gt;
+&lt;button class="default small"&gt;导出&lt;/button&gt;</code></pre>
+      </section>
+
+      <section class="doc-section">
+        <h2>按钮应用场景</h2>
+        <table class="class-table">
+          <thead>
+            <tr>
+              <th>类型</th>
+              <th>适用场景</th>
+              <th>示例</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>.primary</code></td>
+              <td>主要操作、提交、确认</td>
+              <td>提交表单、保存修改、确认操作</td>
+            </tr>
+            <tr>
+              <td><code>.default</code></td>
+              <td>次要操作、取消、返回</td>
+              <td>取消操作、返回上一步、关闭弹窗</td>
+            </tr>
+            <tr>
+              <td><code>.danger</code></td>
+              <td>危险操作、删除、清空</td>
+              <td>删除数据、清空表单、退出登录</td>
+            </tr>
+            <tr>
+              <td><code>.text</code></td>
+              <td>链接、查看更多、辅助操作</td>
+              <td>查看详情、展开/收起、文字链接</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="doc-section">
+        <h2>注意事项</h2>
+        <div class="tip-box">
+          <div class="tip-box-title">💡 提示</div>
+          <p>按钮的 type 属性默认为 submit，在表单外使用建议明确指定 type="button"，避免意外提交表单。</p>
+        </div>
+
+        <h3>推荐写法</h3>
+        <pre><code>&lt;!-- 表单内提交按钮 --&gt;
+&lt;button type="submit" class="primary"&gt;提交&lt;/button&gt;
+
+&lt;!-- 表单外普通按钮 --&gt;
+&lt;button type="button" class="primary"&gt;点击&lt;/button&gt;</code></pre>
+      </section>
+
+      <footer class="doc-footer">
+        <p>通用表单样式系统 · 支持浅色/深色双主题</p>
+      </footer>
+    </div>
+  </body>
+
+</html>

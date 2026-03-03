@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="theme-dark">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>复选框 Checkbox</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="./doc-styles.css">
+  </head>
+
+  <body>
+    <div class="doc-container">
+      <header class="doc-header">
+        <h1>☑️ 复选框 (Checkbox)</h1>
+        <p>样式直接作用于 input[type="checkbox"] 标签，支持多选。</p>
+      </header>
+
+      <section class="doc-section">
+        <h2>可用类名</h2>
+        <table class="class-table">
+          <thead>
+            <tr>
+              <th>类名</th>
+              <th>说明</th>
+              <th>效果</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>（无）</code></td>
+              <td>默认样式</td>
+              <td>尺寸 18×18px</td>
+            </tr>
+            <tr>
+              <td><code>.small</code></td>
+              <td>小尺寸</td>
+              <td>尺寸 14×14px</td>
+            </tr>
+            <tr>
+              <td><code>.large</code></td>
+              <td>大尺寸</td>
+              <td>尺寸 22×22px</td>
+            </tr>
+            <tr>
+              <td><code>.round</code></td>
+              <td>圆形样式</td>
+              <td>圆形复选框</td>
+            </tr>
+            <tr>
+              <td><code>.is-error</code></td>
+              <td>错误状态</td>
+              <td>红色边框/背景</td>
+            </tr>
+            <tr>
+              <td><code>.is-success</code></td>
+              <td>成功状态</td>
+              <td>绿色边框/背景</td>
+            </tr>
+            <tr>
+              <td><code>.is-warning</code></td>
+              <td>警告状态</td>
+              <td>黄色边框/背景</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="doc-section">
+        <h2>基础用法</h2>
+        <div class="demo-box">
+          <div class="demo-row">
+            <label>
+              <input type="checkbox"> 未选中
+            </label>
+            <label>
+              <input type="checkbox" checked> 已选中
+            </label>
+            <label>
+              <input type="checkbox" disabled> 禁用未选
+            </label>
+            <label>
+              <input type="checkbox" disabled checked> 禁用已选
+            </label>
+          </div>
+        </div>
+
+        <h3>使用示例</h3>
+        <pre><code>&lt;label&gt;
+  &lt;input type="checkbox"&gt; 选项文字
+&lt;/label&gt;
+
+&lt;label&gt;
+  &lt;input type="checkbox" checked&gt; 默认选中
+&lt;/label&gt;
+
+&lt;!-- 禁用状态 --&gt;
+&lt;input type="checkbox" disabled&gt;
+&lt;input type="checkbox" disabled checked&gt;</code></pre>
+      </section>
+
+      <section class="doc-section">
+        <h2>尺寸演示</h2>
+        <div class="demo-box">
+          <div class="demo-row">
+            <label>
+              <input type="checkbox" class="small" checked> 小号 (14px)
+            </label>
+            <label>
+              <input type="checkbox" checked> 默认 (18px)
+            </label>
+            <label>
+              <input type="checkbox" class="large" checked> 大号 (22px)
+            </label>
+          </div>
+        </div>
+
+        <h3>使用示例</h3>
+        <pre><code>&lt;!-- 小号复选框 --&gt;
+&lt;input type="checkbox" class="small"&gt;
+
+&lt;!-- 默认复选框 --&gt;
+&lt;input type="checkbox"&gt;
+
+&lt;!-- 大号复选框 --&gt;
+&lt;input type="checkbox" class="large"&gt;</code></pre>
+      </section>
+
+      <section class="doc-section">
+        <h2>圆形样式</h2>
+        <div class="demo-box">
+          <div class="demo-row">
+            <label>
+              <input type="checkbox" class="round"> 圆形未选
+            </label>
+            <label>
+              <input type="checkbox" class="round" checked> 圆形已选
+            </label>
+            <label>
+              <input type="checkbox" class="round small" checked> 圆形小号
+            </label>
+            <label>
+              <input type="checkbox" class="round large" checked> 圆形大号
+            </label>
+          </div>
+        </div>
+
+        <h3>使用示例</h3>
+        <pre><code>&lt;!-- 圆形复选框 --&gt;
+&lt;input type="checkbox" class="round"&gt;
+
+&lt;!-- 圆形 + 尺寸 --&gt;
+&lt;input type="checkbox" class="round small"&gt;
+&lt;input type="checkbox" class="round large"&gt;</code></pre>
+      </section>
+
+      <section class="doc-section">
+        <h2>状态演示</h2>
+        <div class="demo-box">
+          <div class="demo-row">
+            <label>
+              <input type="checkbox" class="is-error" checked> 错误状态
+            </label>
+            <label>
+              <input type="checkbox" class="is-success" checked> 成功状态
+            </label>
+            <label>
+              <input type="checkbox" class="is-warning" checked> 警告状态
+            </label>
+          </div>
+        </div>
+
+        <h3>使用示例</h3>
+        <pre><code>&lt;input type="checkbox" class="is-error"&gt;
+&lt;input type="checkbox" class="is-success"&gt;
+&lt;input type="checkbox" class="is-warning"&gt;</code></pre>
+      </section>
+
+      <section class="doc-section">
+        <h2>多选组示例</h2>
+        <div class="demo-box">
+          <div class="demo-row" style="flex-direction: column; align-items: flex-start; gap: 12px;">
+            <div style="font-weight: 500; margin-bottom: 8px;">请选择您的兴趣爱好（可多选）：</div>
+            <label><input type="checkbox" checked> 阅读</label>
+            <label><input type="checkbox"> 运动</label>
+            <label><input type="checkbox" checked> 音乐</label>
+            <label><input type="checkbox"> 旅游</label>
+            <label><input type="checkbox"> 摄影</label>
+          </div>
+        </div>
+
+        <h3>使用示例</h3>
+        <pre><code>&lt;div class="form-group"&gt;
+  &lt;label&gt;兴趣爱好&lt;/label&gt;
+  &lt;label&gt;&lt;input type="checkbox" name="hobby" value="reading"&gt; 阅读&lt;/label&gt;
+  &lt;label&gt;&lt;input type="checkbox" name="hobby" value="sports"&gt; 运动&lt;/label&gt;
+  &lt;label&gt;&lt;input type="checkbox" name="hobby" value="music"&gt; 音乐&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+      </section>
+
+      <section class="doc-section">
+        <h2>与单选框对比</h2>
+        <table class="class-table">
+          <thead>
+            <tr>
+              <th>特性</th>
+              <th>Checkbox</th>
+              <th>Radio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>选择模式</td>
+              <td>多选（可同时选多个）</td>
+              <td>单选（只能选一个）</td>
+            </tr>
+            <tr>
+              <td>name 属性</td>
+              <td>相同 name 也支持多选</td>
+              <td>相同 name 互斥</td>
+            </tr>
+            <tr>
+              <td>特殊样式</td>
+              <td>支持 .round 圆形</td>
+              <td>不支持圆形</td>
+            </tr>
+            <tr>
+              <td>典型应用</td>
+              <td>兴趣爱好、权限设置</td>
+              <td>性别、单选题</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <footer class="doc-footer">
+        <p>通用表单样式系统 · 支持浅色/深色双主题</p>
+      </footer>
+    </div>
+  </body>
+
+</html>

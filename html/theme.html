@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="theme-dark">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主题系统</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="./doc-styles.css">
+  </head>
+
+  <body>
+    <div class="doc-container">
+      <header class="doc-header">
+        <h1>🎨 主题系统</h1>
+        <p>本样式系统内置浅色和深色两套主题，通过 CSS 变量实现无缝切换。</p>
+      </header>
+
+      <section class="doc-section">
+        <h2>主题类名</h2>
+        <table class="class-table">
+          <thead>
+            <tr>
+              <th>类名</th>
+              <th>说明</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>.theme-light</code></td>
+              <td>浅色主题（适合白天使用）</td>
+            </tr>
+            <tr>
+              <td><code>.theme-dark</code></td>
+              <td>深色主题（适合夜间使用）</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="doc-section">
+        <h2>使用方法</h2>
+
+        <h3>1. HTML 设置主题</h3>
+        <p>在 <code>&lt;html&gt;</code> 或任意父元素上添加主题类名：</p>
+        <pre><code>&lt;!-- 浅色主题 --&gt;
+&lt;html class="theme-light"&gt;
+
+&lt;!-- 深色主题 --&gt;
+&lt;html class="theme-dark"&gt;</code></pre>
+
+        <h3>2. JavaScript 切换主题</h3>
+        <pre><code>// 切换到深色主题
+document.documentElement.classList.remove('theme-light');
+document.documentElement.classList.add('theme-dark');
+
+// 或切换主题（toggle）
+document.documentElement.classList.toggle('theme-light');
+document.documentElement.classList.toggle('theme-dark');</code></pre>
+
+        <h3>3. 保存用户偏好</h3>
+        <pre><code>// 保存主题偏好
+localStorage.setItem('theme', 'dark');
+
+// 读取主题偏好
+const savedTheme = localStorage.getItem('theme') || 'light';
+document.documentElement.classList.add(`theme-${savedTheme}`);</code></pre>
+      </section>
+
+      <section class="doc-section">
+        <h2>主题变量</h2>
+        <p>主题通过 CSS 变量定义，可在自定义样式中覆盖：</p>
+
+        <h3>背景色变量</h3>
+        <table class="class-table">
+          <thead>
+            <tr>
+              <th>变量名</th>
+              <th>浅色主题</th>
+              <th>深色主题</th>
+              <th>说明</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>--app-bg-body</code></td>
+              <td>#ffffff</td>
+              <td>#121212</td>
+              <td>页面背景色</td>
+            </tr>
+            <tr>
+              <td><code>--app-bg-surface</code></td>
+              <td>#f9f9f9</td>
+              <td>#1e1e1e</td>
+              <td>卡片/容器表面色</td>
+            </tr>
+            <tr>
+              <td><code>--bg-primary</code></td>
+              <td>#ffffff</td>
+              <td>#1e1e1e</td>
+              <td>主要背景色</td>
+            </tr>
+            <tr>
+              <td><code>--bg-disabled</code></td>
+              <td>#f5f5f5</td>
+              <td>#262626</td>
+              <td>禁用状态背景</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>表单颜色变量</h3>
+        <table class="class-table">
+          <thead>
+            <tr>
+              <th>变量名</th>
+              <th>浅色主题</th>
+              <th>深色主题</th>
+              <th>说明</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>--form-border</code></td>
+              <td>#d9d9d9</td>
+              <td>#434343</td>
+              <td>边框颜色</td>
+            </tr>
+            <tr>
+              <td><code>--form-border-hover</code></td>
+              <td>#40a9ff</td>
+              <td>#69b1ff</td>
+              <td>悬停边框</td>
+            </tr>
+            <tr>
+              <td><code>--form-border-focus</code></td>
+              <td>#1890ff</td>
+              <td>#177ddc</td>
+              <td>聚焦边框</td>
+            </tr>
+            <tr>
+              <td><code>--form-text</code></td>
+              <td>#333333</td>
+              <td>#e0e0e0</td>
+              <td>文字颜色</td>
+            </tr>
+            <tr>
+              <td><code>--form-placeholder</code></td>
+              <td>#bfbfbf</td>
+              <td>#595959</td>
+              <td>占位符颜色</td>
+            </tr>
+            <tr>
+              <td><code>--form-error</code></td>
+              <td>#ff4d4f</td>
+              <td>#ff7875</td>
+              <td>错误颜色</td>
+            </tr>
+            <tr>
+              <td><code>--form-success</code></td>
+              <td>#52c41a</td>
+              <td>#73d13d</td>
+              <td>成功颜色</td>
+            </tr>
+            <tr>
+              <td><code>--form-warning</code></td>
+              <td>#faad14</td>
+              <td>#ffc53d</td>
+              <td>警告颜色</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>按钮颜色变量</h3>
+        <table class="class-table">
+          <thead>
+            <tr>
+              <th>变量名</th>
+              <th>浅色主题</th>
+              <th>深色主题</th>
+              <th>说明</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>--btn-primary-bg</code></td>
+              <td>#1890ff</td>
+              <td>#177ddc</td>
+              <td>主按钮背景</td>
+            </tr>
+            <tr>
+              <td><code>--btn-primary-bg-hover</code></td>
+              <td>#40a9ff</td>
+              <td>#4096ff</td>
+              <td>主按钮悬停</td>
+            </tr>
+            <tr>
+              <td><code>--btn-danger-bg</code></td>
+              <td>#ff4d4f</td>
+              <td>#ff7875</td>
+              <td>危险按钮背景</td>
+            </tr>
+            <tr>
+              <td><code>--btn-danger-bg-hover</code></td>
+              <td>#ff7875</td>
+              <td>#ff4d4f</td>
+              <td>危险按钮悬停</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="doc-section">
+        <h2>自定义主题</h2>
+
+        <h3>1. 修改 SCSS 主题配置</h3>
+        <p>编辑 <code>scss/theme.scss</code> 中的 <code>$themes</code> 映射：</p>
+        <pre><code>$themes: (
+  light: (
+    bg-body: #ffffff,
+    form-border: #d9d9d9,
+    // ... 更多变量
+  ),
+  dark: (
+    bg-body: #121212,
+    form-border: #434343,
+    // ... 更多变量
+  )
+);</code></pre>
+
+        <h3>2. 添加新主题</h3>
+        <p>在 <code>$themes</code> 映射中添加新主题：</p>
+        <pre><code>$themes: (
+  light: ( ... ),
+  dark: ( ... ),
+  // 新主题
+  blue: (
+    bg-body: #f0f5ff,
+    form-border: #adc6ff,
+    // ...
+  )
+);</code></pre>
+        <p>然后在 HTML 中使用：</p>
+        <pre><code>&lt;html class="theme-blue"&gt;</code></pre>
+
+        <h3>3. 运行时覆盖变量</h3>
+        <p>你也可以在运行时通过 JavaScript 动态修改变量：</p>
+        <pre><code>// 修改主题颜色
+document.documentElement.style.setProperty('--form-border-focus', '#52c41a');
+
+// 恢复默认值
+document.documentElement.style.removeProperty('--form-border-focus');</code></pre>
+      </section>
+
+      <section class="doc-section">
+        <h2>主题切换最佳实践</h2>
+        <div class="tip-box">
+          <div class="tip-box-title">💡 建议</div>
+          <ul style="margin: 0;">
+            <li>将用户的主题偏好保存到 localStorage 中</li>
+            <li>在页面加载时立即应用保存的主题，避免闪烁</li>
+            <li>考虑根据系统偏好自动设置初始主题（prefers-color-scheme）</li>
+            <li>提供明显的主题切换入口，方便用户操作</li>
+          </ul>
+        </div>
+
+        <h3>根据系统偏好设置主题</h3>
+        <pre><code>// 检测系统深色模式偏好
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const defaultTheme = prefersDark ? 'dark' : 'light';
+document.documentElement.classList.add(`theme-${defaultTheme}`);</code></pre>
+      </section>
+
+      <footer class="doc-footer">
+        <p>通用表单样式系统 · 支持浅色/深色双主题</p>
+      </footer>
+    </div>
+  </body>
+
+</html>

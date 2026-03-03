@@ -1,0 +1,333 @@
+/**
+ * 文档页面通用样式
+ * 所有组件文档页面共享此样式
+ */
+
+/* 基础布局 */
+.doc-container {
+  padding: 30px 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* 文档头部 */
+.doc-header {
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--form-border);
+}
+
+.doc-header h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: var(--form-text);
+}
+
+.doc-header p {
+  color: var(--form-placeholder);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* 文档章节 */
+.doc-section {
+  margin-bottom: 40px;
+}
+
+.doc-section h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: var(--form-text);
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--form-border);
+}
+
+.doc-section h3 {
+  font-size: 18px;
+  margin: 25px 0 12px 0;
+  color: var(--form-text);
+}
+
+.doc-section h4 {
+  font-size: 16px;
+  margin: 20px 0 10px 0;
+  color: var(--form-text);
+}
+
+.doc-section p {
+  color: var(--form-text);
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+.doc-section ul,
+.doc-section ol {
+  margin-left: 20px;
+  margin-bottom: 15px;
+  color: var(--form-text);
+  line-height: 1.8;
+}
+
+.doc-section li {
+  margin-bottom: 8px;
+}
+
+/* 行内代码 */
+.doc-section code {
+  background-color: var(--bg-disabled);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Courier New', Consolas, Monaco, monospace;
+  font-size: 14px;
+  color: var(--form-border-focus);
+}
+
+/* 代码块 */
+.doc-section pre {
+  background-color: var(--bg-disabled);
+  padding: 16px 20px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 15px 0;
+  border: 1px solid var(--form-border);
+}
+
+.doc-section pre code {
+  background: none;
+  padding: 0;
+  color: var(--form-text);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* 演示区域 */
+.demo-box {
+  background-color: var(--app-bg-surface);
+  border: 1px solid var(--form-border);
+  border-radius: 8px;
+  padding: 24px;
+  margin: 20px 0;
+}
+
+.demo-row {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.demo-row:last-child {
+  margin-bottom: 0;
+}
+
+.demo-row label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--form-text);
+  font-size: 14px;
+}
+
+/* 类名表格 */
+.class-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 14px;
+}
+
+.class-table th,
+.class-table td {
+  border: 1px solid var(--form-border);
+  padding: 12px 16px;
+  text-align: left;
+}
+
+.class-table th {
+  background-color: var(--bg-disabled);
+  font-weight: 600;
+  color: var(--form-text);
+}
+
+.class-table td {
+  color: var(--form-text);
+}
+
+.class-table tr:hover td {
+  background-color: var(--bg-disabled);
+}
+
+.class-table code {
+  font-size: 13px;
+}
+
+/* 提示框 */
+.tip-box {
+  background-color: rgba(24, 144, 255, 0.1);
+  border-left: 4px solid var(--form-border-focus);
+  padding: 16px 20px;
+  margin: 20px 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.tip-box.warning {
+  background-color: rgba(250, 173, 20, 0.1);
+  border-left-color: var(--form-warning);
+}
+
+.tip-box.error {
+  background-color: rgba(255, 77, 79, 0.1);
+  border-left-color: var(--form-error);
+}
+
+.tip-box.success {
+  background-color: rgba(82, 196, 26, 0.1);
+  border-left-color: var(--form-success);
+}
+
+.tip-box-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--form-text);
+}
+
+.tip-box p {
+  margin: 0;
+}
+
+/* 页脚 */
+.doc-footer {
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 1px solid var(--form-border);
+  text-align: center;
+  color: var(--form-placeholder);
+  font-size: 14px;
+}
+
+/* 颜色预览 */
+.color-preview {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  vertical-align: middle;
+  margin-right: 8px;
+  border: 1px solid var(--form-border);
+}
+
+/* API 表格 */
+.api-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 14px;
+}
+
+.api-table th,
+.api-table td {
+  border: 1px solid var(--form-border);
+  padding: 12px 16px;
+  text-align: left;
+}
+
+.api-table th {
+  background-color: var(--bg-disabled);
+  font-weight: 600;
+  color: var(--form-text);
+}
+
+.api-table td {
+  color: var(--form-text);
+}
+
+.api-table .param-name {
+  font-family: 'Courier New', monospace;
+  color: var(--form-border-focus);
+}
+
+.api-table .param-type {
+  color: var(--form-success);
+  font-size: 12px;
+}
+
+.api-table .param-required {
+  color: var(--form-error);
+  font-size: 12px;
+}
+
+/* 步骤列表 */
+.step-list {
+  counter-reset: step;
+  list-style: none;
+  margin-left: 0 !important;
+}
+
+.step-list li {
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 16px;
+}
+
+.step-list li::before {
+  counter-increment: step;
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  background-color: var(--form-border-focus);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* 滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-disabled);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--form-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--form-placeholder);
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .doc-container {
+    padding: 20px;
+  }
+
+  .doc-header h1 {
+    font-size: 24px;
+  }
+
+  .demo-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .class-table {
+    font-size: 12px;
+  }
+
+  .class-table th,
+  .class-table td {
+    padding: 8px 10px;
+  }
+}
